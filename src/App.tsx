@@ -1,7 +1,7 @@
 import { useState, createContext } from 'react'
 import { createUseStyles } from 'react-jss'
 
-import Landing from './Landing'
+import Landing from './pages/Landing'
 
 interface ThemeContextInterface {
   isDarkTheme: boolean;
@@ -34,11 +34,11 @@ function App() {
     isDarkTheme,
     setDarkTheme,
     toggleTheme,
-    backgroundColor: 'lightgreen',
-    buttonFontColor: '#ccc',
+    backgroundColor: '#71B0DC',
+    buttonFontColor: '#fff',
     fontColor: 'grey',
     borderColor: 'red',
-    themeColor: '#0070ce'
+    themeColor: '#FCF68A'
   }
 
   const { fontColor } = ThemeValues
@@ -46,6 +46,8 @@ function App() {
   const useStyles = createUseStyles({
     appContainer: {
       color: fontColor,
+      fontFamily: `'Inter', sans-serif`,
+      fontWeight: 300,
     },
   })
   const css = useStyles()
