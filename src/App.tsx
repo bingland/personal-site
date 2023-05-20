@@ -1,17 +1,16 @@
 import { useState, createContext } from 'react'
-import { createUseStyles } from 'react-jss'
 
-import Landing from './pages/Landing'
+import ViewController from './ViewController'
 
 interface ThemeContextInterface {
-  isDarkTheme: boolean;
-  setDarkTheme: (darkTheme: boolean) => void;
-  toggleTheme: () => void;
-  backgroundColor: string;
-  buttonFontColor: string;
-  fontColor: string;
-  borderColor: string;
-  themeColor: string;
+  isDarkTheme: boolean
+  setDarkTheme: (darkTheme: boolean) => void
+  toggleTheme: () => void
+  backgroundColor: string
+  buttonFontColor: string
+  fontColor: string
+  borderColor: string
+  themeColor: string
 }
 
 export const ThemeContext = createContext<ThemeContextInterface>({
@@ -36,27 +35,14 @@ function App() {
     toggleTheme,
     backgroundColor: '#71B0DC',
     buttonFontColor: '#fff',
-    fontColor: 'grey',
-    borderColor: 'red',
+    fontColor: '#000',
+    borderColor: '#000',
     themeColor: '#FCF68A'
   }
 
-  const { fontColor } = ThemeValues
-
-  const useStyles = createUseStyles({
-    appContainer: {
-      color: fontColor,
-      fontFamily: `'Inter', sans-serif`,
-      fontWeight: 300,
-    },
-  })
-  const css = useStyles()
-
   return (
     <ThemeContext.Provider value={ThemeValues}>
-      <div className={css.appContainer}>
-        <Landing />
-      </div>
+      <ViewController />
     </ThemeContext.Provider>
   )
 }

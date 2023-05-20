@@ -1,7 +1,6 @@
 import { useContext } from 'react'
 import { createUseStyles } from 'react-jss'
 import { ThemeContext } from '../../App'
-import Header from '../../components/Header'
 
 function Landing() {
   const theme = useContext(ThemeContext)
@@ -28,7 +27,7 @@ function Landing() {
     },
 
     mainTextArea: {
-      lineHeight: 1.25,
+      
     },
     mainHeader: {
       fontSize: 45,
@@ -56,7 +55,6 @@ function Landing() {
 
   return (
     <div className={css.landingContainer}>
-      <Header />
       <div className={css.contentContainer}>
         <div className={css.mainTextArea}>
           <h1 className={css.mainHeader}>Hey, my name's Brayden.</h1>
