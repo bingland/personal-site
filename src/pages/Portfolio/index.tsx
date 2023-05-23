@@ -19,9 +19,11 @@ function Portfolio() {
     projectsGrid: {
       width: '100%',
       margin: '0 auto',
-      maxWidth: 1200,
+      maxWidth: 1300,
       display: 'flex',
-      gap: 50,
+      flexWrap: 'wrap',
+      justifyContent: 'space-between',
+      gap: 30,
     },
   })
   const css = useStyles()
@@ -35,6 +37,24 @@ function Portfolio() {
           highlightColor={'#9491E9'}
           site={'https://prismcolor.netlify.app/'} 
           repo={'https://github.com/bingland/color-accessibility-app'} />
+        <ProjectBox 
+          title={'Translate to JSON'} 
+          desc={'Translate a JSON object into different languages. Created with Svelte and NodeJS, uses a Puppeteer based backend for data scraping to bypass an API key. '} 
+          highlightColor={'#2C6A72'}
+          // site={'https://translate-to-json.onrender.com/'} 
+          repo={'https://github.com/bingland/translateToJSON'} />
+        <ProjectBox 
+          title={'React Trivia'} 
+          desc={'Trivia Game made with React and the Open Trivia DB API. Assignment for DGM 3790 at Utah Valley University.'} 
+          highlightColor={'#E93323'}
+          site={'https://reacttrivia.netlify.app/'} 
+          repo={'https://github.com/bingland/trivia-react'} />
+        <ProjectBox 
+          title={'1800 Clothing'} 
+          desc={'1800s Clothing site is to provide period-accurate images of clothing from the 1800s. This is a group application that done for a Senior Project at Utah Valley University.'} 
+          highlightColor={'#CCBCA6'}
+          site={'https://1800clothing.org/'} 
+          repo={'https://github.com/timetoady/1800clothingSvelte1'} />
       </div>
     </div>
   )

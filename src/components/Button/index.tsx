@@ -9,10 +9,11 @@ interface ProjectBoxProps {
   width?: string
   color?: string
   size?: string
+  href?: string
   icon?: 'github' | 'viewsite' | 'gallery' | 'linkedin' | 'email'
 }
 
-function Button({color, text, width, size, icon, ...props}: ProjectBoxProps) {
+function Button({color, text, width, size, icon, href, ...props}: ProjectBoxProps) {
   const theme = useContext(ThemeContext)
   
   const useStyles = createUseStyles({
@@ -47,8 +48,12 @@ function Button({color, text, width, size, icon, ...props}: ProjectBoxProps) {
   })
   const css = useStyles()
 
+  const clickButton = () => {
+    if (href) window.open(href, '_blank')?.focus()
+  }
+
   return (
-    <button className={css.buttonContainer}>
+    <button className={css.buttonContainer} onMouseUp={clickButton}>
       <div className={css.iconContainer}>
         {icon === 'github' && <GithubIcon color={color || theme.themeColor} width={'19px'} height={'19px'} />}
         {icon === 'viewsite' && <ViewSiteIcon color={color || theme.themeColor} width={'19px'} height={'19px'} />}

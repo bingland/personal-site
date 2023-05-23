@@ -24,6 +24,7 @@ function ProjectBox({ highlightColor, title, desc, size, viewGallery, site, repo
       height: 275,
       borderRadius: 25,
       padding: 25,
+      boxShadow: `0px 8px ${highlightColor || theme.themeColor}`,
     },
 
     title: {
@@ -54,8 +55,8 @@ function ProjectBox({ highlightColor, title, desc, size, viewGallery, site, repo
       <div className={css.divider} />
       <div className={css.desc}>{desc}</div>
       <div className={css.linksArea}>
-        {site && <Button text={'Visit Site'} icon={'viewsite'} />}
-        {repo && <Button text={'View Repo'} icon={'github'} />}
+        {site && <Button text={'Visit Site'} color={highlightColor} href={site} icon={'viewsite'} />}
+        {repo && <Button text={'View Repo'} color={highlightColor} href={repo} icon={'github'} />}
       </div>
     </div>
   )
