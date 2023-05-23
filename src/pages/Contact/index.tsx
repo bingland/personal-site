@@ -1,6 +1,7 @@
 import { useContext } from 'react'
 import { createUseStyles } from 'react-jss'
 import { ThemeContext } from '../../App'
+import Button from '../../components/Button'
 
 function Contact() {
   const theme = useContext(ThemeContext)
@@ -32,6 +33,13 @@ function Contact() {
       height: 159,
       background: theme.themeColor,
       borderRadius: '48px 0 0 0',
+    },
+    linkArea: {
+    },
+    linkItem: {
+      marginTop: 10,
+      display: 'grid',
+      alignItems: 'center',
     },
     recommendationArea: {
       padding: 83,
@@ -80,6 +88,17 @@ function Contact() {
         <div className={css.connectArea}>
           <div className={css.profileVisual}>
 
+          </div>
+          <div className={css.linkArea}>
+            <div className={css.linkItem}>
+              <Button text={'Connect on LinkedIn'} icon={'linkedin'} color={'#0070ce'} width={'225px'} />
+            </div>
+            <div className={css.linkItem}>
+              <Button text={'Check out my GitHub'} icon={'github'} color={'#4B4B4B'} width={'225px'} />
+            </div>
+            <div className={css.linkItem}>
+              <Button text={'Send me an email'} icon={'email'} color={'#E3421E'} width={'225px'} />
+            </div>
           </div>
         </div>
         <div className={css.recommendationArea}>

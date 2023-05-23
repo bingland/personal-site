@@ -4,10 +4,8 @@ import { createUseStyles } from 'react-jss'
 import Header from './components/Header'
 import Landing from './pages/Landing'
 import Portfolio from './pages/Portfolio'
+import Contact from './pages/Contact'
 import { ThemeContext } from './App'
-
-// export this in different file
-type PageTypes = 'landing' | 'portfolio' | 'experience' | 'social'
 
 function ViewController() {
   const theme = useContext(ThemeContext)
@@ -29,6 +27,7 @@ function ViewController() {
       <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
       {currentPage === 'landing' && <Landing />}
       {currentPage === 'portfolio' && <Portfolio />}
+      {currentPage === 'contact' && <Contact />}
     </div>
   )
 }

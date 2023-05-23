@@ -30,9 +30,11 @@ function Portfolio() {
     <div className={css.projectsContainer}>
       <div className={css.projectsGrid}>
         <ProjectBox 
-          title={'Title'} 
-          desc={'Hey Im just a description for this ProjectBox'} 
-          highlightColor={'#0070ce'} />
+          title={'Color Accessibility App'} 
+          desc={'React App that calculates the accessibility of a color scheme according to different types of colorblindness.'} 
+          highlightColor={'#9491E9'}
+          site={'https://prismcolor.netlify.app/'} 
+          repo={'https://github.com/bingland/color-accessibility-app'} />
       </div>
     </div>
   )

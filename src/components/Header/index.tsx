@@ -3,9 +3,6 @@ import { createUseStyles } from 'react-jss'
 import { ThemeContext } from '../../App'
 import classNames from 'classnames'
 
-// export this in different file
-type PageTypes = 'landing' | 'portfolio' | 'experience' | 'social'
-
 interface HeaderProps {
   currentPage: PageTypes
   setCurrentPage: (page: PageTypes) => void
@@ -20,6 +17,7 @@ function Header(props: HeaderProps) {
       position: 'absolute',
       top: 0,
       zIndex: 5,
+      fontFamily: `'League Spartan', sans-serif`,
     },
     divider: {
       margin: '0 auto',
@@ -48,6 +46,7 @@ function Header(props: HeaderProps) {
     },
     logoText: {
       fontSize: 25,
+      color: theme.themeColor,
     },
 
     itemsContainer: {
@@ -69,6 +68,7 @@ function Header(props: HeaderProps) {
 
   const clickItem = (page: PageTypes) => {
     if (page === props.currentPage) return
+    // theme.setThemeColor('green')
     props.setCurrentPage(page)
   }
 
@@ -81,9 +81,9 @@ function Header(props: HeaderProps) {
         </div>
         <div className={classNames(css.flex, css.itemsContainer)}>
           {/* turn this into function? */}
-          <div onClick={() => clickItem('portfolio')} className={classNames(css.item, props.currentPage === 'landing' ? css.landingColor : css.pageColor)}>Portfolio</div>
-          <div onClick={() => clickItem('experience')} className={classNames(css.item, props.currentPage === 'landing' ? css.landingColor : css.pageColor)}>Experience</div>
-          <div onClick={() => clickItem('social')} className={classNames(css.item, props.currentPage === 'landing' ? css.landingColor : css.pageColor)}>Social</div>
+          <div onClick={() => clickItem('portfolio')} className={classNames(css.item, css.pageColor)}>Portfolio</div>
+          <div onClick={() => clickItem('experience')} className={classNames(css.item, css.pageColor)}>Experience</div>
+          <div onClick={() => clickItem('contact')} className={classNames(css.item, css.pageColor)}>Contact</div>
         </div>
       </div>
     </nav>

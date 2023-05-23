@@ -12,7 +12,7 @@ function Landing() {
       position: 'absolute',
       top: 0,
       left: 0,
-      color: theme.buttonFontColor,
+      color: theme.fontColor,
       backgroundColor: theme.backgroundColor,
       borderLeft: `10px solid ${theme.themeColor}`
     },
@@ -34,6 +34,7 @@ function Landing() {
       fontWeight: 'bold',
       color: theme.themeColor,
       marginBottom: 20,
+      fontFamily: `'League Spartan', sans-serif`,
     },
     mainParagraph: {
       fontSize: 28,
@@ -59,7 +60,7 @@ function Landing() {
         <div className={css.mainTextArea}>
           <h1 className={css.mainHeader}>Hey, my name's Brayden.</h1>
           <p className={css.mainParagraph}>
-            I'm a Front End Web Developer with 2 years of experience in both coding and design. 
+            I'm a Front End Web Developer with 2 years of professional experience in both coding and design. 
             I got my Bachelor's Degree from Utah Valley University in Web Design & Development.
           </p>
         </div>
