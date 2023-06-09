@@ -19,7 +19,7 @@ function Portfolio() {
     projectsGrid: {
       width: '100%',
       margin: '0 auto',
-      maxWidth: 1300,
+      maxWidth: 1200,
       display: 'flex',
       flexWrap: 'wrap',
       justifyContent: 'space-between',

@@ -20,26 +20,26 @@ function ProjectBox({ highlightColor, title, desc, size, viewGallery, site, repo
   const useStyles = createUseStyles({
     projectBoxContainer: {
       border: `1px solid ${theme.borderColor}`,
-      width: 412,
-      height: 275,
+      width: 380,
+      height: 240,
       borderRadius: 25,
       padding: 25,
       boxShadow: `0px 8px ${highlightColor || theme.themeColor}`,
     },
 
     title: {
-      fontSize: 32,
+      fontSize: 25,
       fontWeight: 'bold',
       fontFamily: `'League Spartan', sans-serif`,
     },
     desc: {
-      fontSize: 18,
+      fontSize: 16,
       fontWeight: 'lighter',
     },
     divider: {
       borderTop: `1px solid ${theme.borderColor}`,
       height: 1,
-      margin: '10px 0 15px 0',
+      margin: '7px 0 12px 0',
     },
     linksArea: {
       display: 'flex',
