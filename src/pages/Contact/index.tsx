@@ -2,6 +2,7 @@ import { useContext } from 'react'
 import { createUseStyles } from 'react-jss'
 import { ThemeContext } from '../../App'
 import Button from '../../components/Button'
+import profilePic from '../../images/photosessSquare.jpg'
 
 function Contact() {
   const theme = useContext(ThemeContext)
@@ -22,19 +23,33 @@ function Contact() {
       border: `1px solid ${theme.borderColor}`,
       borderRadius: 49,
       display: 'grid',
-      gridTemplateColumns: '390px 645px',
-      width: 1037,
-      height: 519,
+      gridTemplateColumns: '300px 1fr',
+      width: 850,
+      height: 440,
     },
     connectArea: {
       borderRight: `1px solid ${theme.borderColor}`,
     },
     profileVisual: {
-      height: 159,
+      width: '100%',
       background: theme.themeColor,
       borderRadius: '48px 0 0 0',
+      display: 'grid',
+      justifyContent: 'center',
+      height: 150,
+    },
+    profileVisualImg: {
+      width: 180,
+      position: 'relative',
+      top: 25,
+      borderRadius: 180,
+      border: `5px solid white`
     },
     linkArea: {
+      display: 'flex',
+      alignItems: 'center',
+      flexDirection: 'column',
+      marginTop: 60,
     },
     linkItem: {
       marginTop: 10,
@@ -42,7 +57,7 @@ function Contact() {
       alignItems: 'center',
     },
     recommendationArea: {
-      padding: 83,
+      padding: 60,
     },
     recommendationCarousel: {
 
@@ -52,32 +67,33 @@ function Contact() {
     },
     recommendationTitle: {
       fontFamily: `'League Spartan', sans-serif`,
-      fontSize: 30,
+      fontSize: 24,
       fontWeight: 'bold',
     },
     recommendationText: {
-      fontSize: 23,
-      marginTop: 5,
+      fontSize: 20,
+      marginTop: 15,
     },
     recommendationGiver: {
       display: 'flex',
-      gap: 15,
+      gap: 10,
       marginTop: 25,
+      alignItems: 'center',
     },
     giverPic: {
-      width: 47,
-      height: 47,
-      borderRadius: 47,
+      width: 35,
+      height: 35,
+      borderRadius: 35,
       border: `1px solid ${theme.borderColor}`,
       background: 'grey',
     },
     giverName: {
       fontFamily: `'League Spartan', sans-serif`,
-      fontSize: 24,
+      fontSize: 20,
       fontWeight: 'bold',
     },
     giverPosition: {
-      fontSize: 15,
+      fontSize: 12,
     },
   })
   const css = useStyles()
@@ -87,7 +103,7 @@ function Contact() {
       <div className={css.mainBox}>
         <div className={css.connectArea}>
           <div className={css.profileVisual}>
-
+            <img className={css.profileVisualImg} src={profilePic} alt={'Connect with Brayden England'} />
           </div>
           <div className={css.linkArea}>
             <div className={css.linkItem}>
