@@ -8,19 +8,22 @@ interface ProjectBoxProps {
   highlightColor?: string
   title: string
   desc: string
-  size?: string
-  viewGallery?: boolean
+  size?: 1 | 2
+  gallery?: boolean
+  showGallery?: boolean
+  toggleGallery?: () => void
   site?: string
+  about?: string
   repo?: string
 }
 
-function ProjectBox({ highlightColor, title, desc, size, viewGallery, site, repo, ...props}: ProjectBoxProps) {
+function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, showGallery, toggleGallery, site, repo, ...props}: ProjectBoxProps) {
   const theme = useContext(ThemeContext)
   
   const useStyles = createUseStyles({
     projectBoxContainer: {
       border: `1px solid ${theme.borderColor}`,
-      width: 380,
+      width: (size * 380),
       height: 240,
       borderRadius: 25,
       padding: 25,
@@ -56,6 +59,8 @@ function ProjectBox({ highlightColor, title, desc, size, viewGallery, site, repo
       <div className={css.desc}>{desc}</div>
       <div className={css.linksArea}>
         {site && <Button text={'Visit Site'} color={highlightColor} href={site} icon={'viewsite'} />}
+        {about && <Button text={'More Info'} color={highlightColor} href={about} icon={'viewsite'} />}
+        {gallery && <Button text={'View Gallery'} onClick={toggleGallery} color={highlightColor} icon={'viewsite'} />}
         {repo && <Button text={'View Repo'} color={highlightColor} href={repo} icon={'github'} />}
       </div>
     </div>

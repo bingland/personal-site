@@ -11,9 +11,10 @@ interface ProjectBoxProps {
   size?: 'xl' | 'lg' | 'md' | 'sm'
   href?: string
   icon?: 'github' | 'viewsite' | 'gallery' | 'linkedin' | 'email'
+  onClick?: () => void
 }
 
-function Button({color, text, width, size = 'md', icon, href, ...props}: ProjectBoxProps) {
+function Button({color, text, width, size = 'md', icon, href, onClick, ...props}: ProjectBoxProps) {
   const theme = useContext(ThemeContext)
   
   const useStyles = createUseStyles({
@@ -50,6 +51,7 @@ function Button({color, text, width, size = 'md', icon, href, ...props}: Project
 
   const clickButton = () => {
     if (href) window.open(href, '_blank')?.focus()
+    onClick && onClick()
   }
 
   const getIconSize = () => {

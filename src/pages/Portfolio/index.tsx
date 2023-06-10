@@ -1,9 +1,11 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { createUseStyles } from 'react-jss'
 import { ThemeContext } from '../../App'
 import ProjectBox from '../../components/ProjectBox'
+import Gallery from '../../components/Gallery'
 
 function Portfolio() {
+  const [nokeGallery, setNokeGallery] = useState(false)
   const theme = useContext(ThemeContext)
   
   const useStyles = createUseStyles({
@@ -30,7 +32,23 @@ function Portfolio() {
 
   return (
     <div className={css.projectsContainer}>
+      {/* galleries */}
+      {nokeGallery && 
+        <Gallery 
+          title={'Noke Smart Entry'}
+          subtitle={'June 2021 to April 2023'} 
+          description={'Noke Smart Entry is an electronic smart lock & access control system that allows tenants to access your facility & their unit using their smart device. This is an access control system that allows tenants to access your facility & their unit using their smart device.'} 
+          toggle={() => setNokeGallery(!nokeGallery)}
+          />}
       <div className={css.projectsGrid}>
+        <ProjectBox 
+          title={'Noke Smart Entry'} 
+          desc={'I worked with Nokē from June 2021 to April 2023. Nokē® Smart Entry is an electronic smart lock & access control system that allows tenants to access your facility & their unit using their smart device.'} 
+          highlightColor={'#0070ce'}
+          about={'https://www.janusintl.com/products/noke'} 
+          gallery={true}
+          showGallery={nokeGallery}
+          toggleGallery={() => setNokeGallery(!nokeGallery)} />
         <ProjectBox 
           title={'Color Accessibility App'} 
           desc={'React App that calculates the accessibility of a color scheme according to different types of colorblindness.'} 
