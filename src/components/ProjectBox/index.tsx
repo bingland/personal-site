@@ -22,9 +22,10 @@ function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, sho
   
   const useStyles = createUseStyles({
     projectBoxContainer: {
+      position: 'relative',
       border: `1px solid ${theme.borderColor}`,
       width: (size * 380),
-      height: 240,
+      height: 250,
       borderRadius: 25,
       padding: 25,
       boxShadow: `0px 8px ${highlightColor || theme.themeColor}`,
@@ -45,9 +46,10 @@ function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, sho
       margin: '7px 0 12px 0',
     },
     linksArea: {
+      position: 'absolute',
+      bottom: 20,
       display: 'flex',
       gap: 15,
-      marginTop: 10,
     }
   })
   const css = useStyles()

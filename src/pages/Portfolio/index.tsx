@@ -6,6 +6,7 @@ import Gallery from '../../components/Gallery'
 
 function Portfolio() {
   const [nokeGallery, setNokeGallery] = useState(false)
+  const toggleNokeGallery = () => setNokeGallery(!nokeGallery)
   const theme = useContext(ThemeContext)
   
   const useStyles = createUseStyles({
@@ -24,7 +25,7 @@ function Portfolio() {
       maxWidth: 1200,
       display: 'flex',
       flexWrap: 'wrap',
-      justifyContent: 'space-between',
+      // justifyContent: 'space-between',
       gap: 30,
     },
   })
@@ -38,7 +39,8 @@ function Portfolio() {
           title={'Noke Smart Entry'}
           subtitle={'June 2021 to April 2023'} 
           description={'Noke Smart Entry is an electronic smart lock & access control system that allows tenants to access your facility & their unit using their smart device. This is an access control system that allows tenants to access your facility & their unit using their smart device.'} 
-          toggle={() => setNokeGallery(!nokeGallery)}
+          toggle={toggleNokeGallery}
+          galleryColor={'#0070ce'}
           />}
       <div className={css.projectsGrid}>
         <ProjectBox 
@@ -48,7 +50,7 @@ function Portfolio() {
           about={'https://www.janusintl.com/products/noke'} 
           gallery={true}
           showGallery={nokeGallery}
-          toggleGallery={() => setNokeGallery(!nokeGallery)} />
+          toggleGallery={toggleNokeGallery} />
         <ProjectBox 
           title={'Color Accessibility App'} 
           desc={'React App that calculates the accessibility of a color scheme according to different types of colorblindness.'} 
