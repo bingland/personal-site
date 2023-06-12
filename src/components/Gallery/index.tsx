@@ -4,15 +4,21 @@ import { ThemeContext } from '../../App'
 import classNames from 'classnames'
 // import { GithubIcon } from '../../utilities/icons'
 
+type GalleryItem = {
+  image: string
+  description: string
+}
+
 interface GalleryProps {
   title: string
   subtitle?: string
   description: string
   galleryColor?: string
+  gallery?: GalleryItem[]
   toggle: () => void
 }
 
-function Gallery ({title, subtitle, description, galleryColor = 'black', toggle, ...props}: GalleryProps) {
+function Gallery ({title, subtitle, description, galleryColor = 'black', gallery, toggle, ...props}: GalleryProps) {
   const theme = useContext(ThemeContext)
   
   const useStyles = createUseStyles({
@@ -79,9 +85,11 @@ function Gallery ({title, subtitle, description, galleryColor = 'black', toggle,
       height: 130,
       width: '100%',
       border: `1px solid ${theme.borderColor}`,
-      borderRadius: 15,
+      borderRadius: 5,
       overflow: 'none',
-      background: 'white',
+      background: theme.backgroundColor,
+      cursor: 'pointer',
+      boxShadow: ' 5px 5px 16px -3px rgba(0,0,0,0.15)'
     },
 
     controls: {
@@ -113,23 +121,17 @@ function Gallery ({title, subtitle, description, galleryColor = 'black', toggle,
           <div className={css.infoSubtitle}>{subtitle}</div>
           <div className={css.infoDescription}>{description}</div>
         </div>
-        <div className={classNames(css.card, css.displaySection)}>
+        <div className={classNames(css.card, css.displaySection)} onClick={e => e.stopPropagation()}>
           <div className={css.imageSelect}>
-            <div className={css.imageItem} />
-            <div className={css.imageItem} />
-            <div className={css.imageItem} />
-            <div className={css.imageItem} />
-            <div className={css.imageItem} />
-            <div className={css.imageItem} />
-            <div className={css.imageItem} />
-            <div className={css.imageItem} />
-            <div className={css.imageItem} />
-            <div className={css.imageItem} />
-            <div className={css.imageItem} />
-            <div className={css.imageItem} />
-            <div className={css.imageItem} />
-            <div className={css.imageItem} />
-            <div className={css.imageItem} />
+            {gallery?.map((galleryItem, i) => 
+              <div 
+                className={css.imageItem} 
+                key={'galleryItem'+i} 
+                style={{ 
+                  backgroundImage: `url(${galleryItem.image})`,
+                  backgroundSize: 'cover',
+                }} />
+            )}
           </div>
 
           <div className={css.controls}>

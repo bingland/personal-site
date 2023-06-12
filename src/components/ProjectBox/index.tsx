@@ -11,24 +11,25 @@ interface ProjectBoxProps {
   size?: 1 | 2
   gallery?: boolean
   showGallery?: boolean
+  extraArea?: any
   toggleGallery?: () => void
   site?: string
   about?: string
   repo?: string
 }
 
-function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, showGallery, toggleGallery, site, repo, ...props}: ProjectBoxProps) {
+function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, showGallery, extraArea, toggleGallery, site, repo, ...props}: ProjectBoxProps) {
   const theme = useContext(ThemeContext)
   
   const useStyles = createUseStyles({
     projectBoxContainer: {
       position: 'relative',
       border: `1px solid ${theme.borderColor}`,
-      width: (size * 380),
-      height: 250,
+      width: (size * 380) + (size > 1 ? 30 : 0),
+      height: 260,
       borderRadius: 25,
       padding: 25,
-      boxShadow: `0px 8px ${highlightColor || theme.themeColor}`,
+      boxShadow: `0px 9px ${highlightColor || theme.themeColor}`,
     },
 
     title: {
@@ -39,17 +40,30 @@ function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, sho
     desc: {
       fontSize: 16,
       fontWeight: 'lighter',
+      maxWidth: 440,
     },
     divider: {
       borderTop: `1px solid ${theme.borderColor}`,
       height: 1,
       margin: '7px 0 12px 0',
+      maxWidth: 440,
     },
     linksArea: {
       position: 'absolute',
       bottom: 20,
       display: 'flex',
       gap: 15,
+    },
+
+    extraArea: {
+      position: 'absolute',
+      top: 25,
+      right: 25,
+      width: 260,
+      height: 210,
+      borderRadius: 20,
+      background: theme.backgroundColor,
+      boxShadow: `9px 9px ${highlightColor || theme.themeColor}`,
     }
   })
   const css = useStyles()
@@ -65,6 +79,7 @@ function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, sho
         {about && <Button text={'More Info'} color={highlightColor} href={about} icon={'viewsite'} />}
         {repo && <Button text={'View Repo'} color={highlightColor} href={repo} icon={'github'} />}
       </div>
+      {size > 1 && <div className={css.extraArea}>{extraArea}</div>}
     </div>
   )
 }

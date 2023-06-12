@@ -37,6 +37,7 @@ function Contact() {
       gridTemplateColumns: '300px 1fr',
       width: 850,
       height: 440,
+      boxShadow: `0px 9px ${theme.themeColor}`,
     },
     connectArea: {
       borderRight: `1px solid ${theme.borderColor}`,

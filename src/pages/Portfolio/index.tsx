@@ -2,7 +2,7 @@ import { useContext, useState } from 'react'
 import { createUseStyles } from 'react-jss'
 import { ThemeContext } from '../../App'
 import ProjectBox from '../../components/ProjectBox'
-import Gallery from '../../components/Gallery'
+import NokeGallery from './nokeGallery'
 
 function Portfolio() {
   const [nokeGallery, setNokeGallery] = useState(false)
@@ -16,7 +16,7 @@ function Portfolio() {
       position: 'absolute',
       top: 0,
       left: 0,
-      paddingTop: 80,
+      paddingBottom: 80,
       // borderLeft: `10px solid ${theme.themeColor}`
     },
     projectsGrid: {
@@ -25,8 +25,11 @@ function Portfolio() {
       maxWidth: 1200,
       display: 'flex',
       flexWrap: 'wrap',
-      // justifyContent: 'space-between',
+      justifyContent: 'space-aroun',
       gap: 30,
+      position: 'relative',
+      top: '50%',
+      transform: 'translateY(-50%)',
     },
   })
   const css = useStyles()
@@ -34,14 +37,7 @@ function Portfolio() {
   return (
     <div className={css.projectsContainer}>
       {/* galleries */}
-      {nokeGallery && 
-        <Gallery 
-          title={'Noke Smart Entry'}
-          subtitle={'June 2021 to April 2023'} 
-          description={'Noke Smart Entry is an electronic smart lock & access control system that allows tenants to access your facility & their unit using their smart device. This is an access control system that allows tenants to access your facility & their unit using their smart device.'} 
-          toggle={toggleNokeGallery}
-          galleryColor={'#0070ce'}
-          />}
+      {nokeGallery && <NokeGallery toggle={toggleNokeGallery} />}
       <div className={css.projectsGrid}>
         <ProjectBox 
           title={'Noke Smart Entry'} 
@@ -49,6 +45,7 @@ function Portfolio() {
           highlightColor={'#0070ce'}
           about={'https://www.janusintl.com/products/noke'} 
           gallery={true}
+          size={2}
           showGallery={nokeGallery}
           toggleGallery={toggleNokeGallery} />
         <ProjectBox 
