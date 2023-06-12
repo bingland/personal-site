@@ -60,9 +60,9 @@ function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, sho
       <div className={css.divider} />
       <div className={css.desc}>{desc}</div>
       <div className={css.linksArea}>
+        {gallery && <Button text={'View Gallery'} onClick={toggleGallery} color={highlightColor} icon={'viewsite'} />}
         {site && <Button text={'Visit Site'} color={highlightColor} href={site} icon={'viewsite'} />}
         {about && <Button text={'More Info'} color={highlightColor} href={about} icon={'viewsite'} />}
-        {gallery && <Button text={'View Gallery'} onClick={toggleGallery} color={highlightColor} icon={'viewsite'} />}
         {repo && <Button text={'View Repo'} color={highlightColor} href={repo} icon={'github'} />}
       </div>
     </div>

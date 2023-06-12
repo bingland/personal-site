@@ -2,7 +2,17 @@ import { useContext } from 'react'
 import { createUseStyles } from 'react-jss'
 import { ThemeContext } from '../../App'
 import Button from '../../components/Button'
+import Carousel from 'nuka-carousel'
+
 import profilePic from '../../images/photosessSquare.jpg'
+
+interface RecommendationProps {
+  title: string
+  text: string
+  giverImg?: any
+  giverName: string
+  giverPosition: string
+}
 
 function Contact() {
   const theme = useContext(ThemeContext)
@@ -22,6 +32,7 @@ function Contact() {
     mainBox: {
       border: `1px solid ${theme.borderColor}`,
       borderRadius: 49,
+      overflow: 'hidden',
       display: 'grid',
       gridTemplateColumns: '300px 1fr',
       width: 850,
@@ -57,13 +68,12 @@ function Contact() {
       alignItems: 'center',
     },
     recommendationArea: {
-      padding: 60,
-    },
-    recommendationCarousel: {
-
+      // width: '100%',
+      maxWidth: 550,
+      position: 'relative',
     },
     recommendation: {
-
+      padding: 50,
     },
     recommendationTitle: {
       fontFamily: `'League Spartan', sans-serif`,
@@ -98,6 +108,20 @@ function Contact() {
   })
   const css = useStyles()
 
+  const Recommendation = ({title, text, giverImg, giverName, giverPosition}: RecommendationProps) => 
+    <div className={css.recommendation}>
+      <div className={css.recommendationTitle}>{title}</div>
+      <div className={css.recommendationText}>{text}</div>
+      <div className={css.recommendationGiver}>
+        <div className={css.giverPic} />
+        <div>
+          <div className={css.giverName}>{giverName}</div>
+          <div className={css.giverPosition}>{giverPosition}</div>
+        </div>
+      </div>
+    </div>
+  
+
   return (
     <div className={css.contactContainer}>
       <div className={css.mainBox}>
@@ -107,35 +131,76 @@ function Contact() {
           </div>
           <div className={css.linkArea}>
             <div className={css.linkItem}>
-              <Button text={'Connect on LinkedIn'} icon={'linkedin'} color={'#0070ce'} width={'225px'} />
+              <Button text={'Connect on LinkedIn'} icon={'linkedin'} color={'#0070ce'} width={'215px'} />
             </div>
             <div className={css.linkItem}>
-              <Button text={'Check out my GitHub'} icon={'github'} color={'#4B4B4B'} width={'225px'} />
+              <Button text={'Check out my GitHub'} icon={'github'} color={'#4B4B4B'} width={'215px'} />
             </div>
             <div className={css.linkItem}>
-              <Button text={'Send me an email'} icon={'email'} color={'#E3421E'} width={'225px'} />
+              <Button text={'Send me an email'} icon={'email'} color={'#E3421E'} width={'215px'} />
             </div>
           </div>
         </div>
         <div className={css.recommendationArea}>
-          <div className={css.recommendationCarousel}>
-            {/* turn into component? */}
-            <div className={css.recommendation}>
-              <div className={css.recommendationTitle}>Highly Skilled and Professional</div>
-              <div className={css.recommendationText}>
+          <Carousel 
+            dragging={false} 
+            autoplay={true} 
+            autoplayInterval={6000}
+            speed={1000}
+            wrapAround={true}
+            slideWidth={'550px'}
+            style={{
+              width: '100%',
+              maxWidth: '100%',
+            }}
+            defaultControlsConfig={{
+              prevButtonStyle: { display: 'none' }, 
+              nextButtonStyle: { display: 'none' },
+              // containerClassName: css.recommendationContainer
+            }}
+            >
+
+            <Recommendation 
+              title={'Highly Skilled and Professional'}
+              text={`
                 Brayden started at Noke and immediately hit the ground running. He instantly dove in and learned our processes and asked insightful 
                 questions so he could start working immediately. Shortly after starting work he was already contributing, opening PRs, and even adding 
                 some awesome and advanced new features.
-              </div>
-              <div className={css.recommendationGiver}>
-                <div className={css.giverPic} />
-                <div>
-                  <div className={css.giverName}>Mikey Johnston</div>
-                  <div className={css.giverPosition}>Frontend Developer at Angel Studios</div>
-                </div>
-              </div>
-            </div>
-          </div>
+              `}
+              giverName={'Mikey Johnston'}
+              giverPosition={'Frontend Developer at Angel Studios'}
+              />
+            <Recommendation 
+              title={'A Valuable Asset For Any Team'}
+              text={`
+                Not only is he a talented web developer but his design is incredible. He's done a lot of mock ups and UI redesign that has really changed 
+                the look and feel of our website into something more user friendly, modern and appealing. He's a hard worker who's always willing to tackle 
+                a new challenge and always delivers outstanding results.
+              `}
+              giverName={'Sean Calkins'}
+              giverPosition={'Mobile Application Developer at Tendo'}
+              />
+            <Recommendation 
+              title={'Truly An Extraordinaire'}
+              text={`
+                He not only has a very keen eye for slick-looking design across user interfaces, he also has the advanced front end skills--React, JavaScript, 
+                HTML, CSS, etc.--to make that design a reality. His strong work ethic, attention to detail, technical skills, collaborative approach, and 
+                commitment to quality would make him a valuable asset to any organization.
+              `}
+              giverName={'Matthew Johnston'}
+              giverPosition={'Software Engineer at Noke'}
+              />
+            <Recommendation 
+              title={'Standout Talent'}
+              text={`
+                Brayden's eye for design is out of this world! He took our basic web portal and made it amazing! All of his UX/UI designs are both beautiful 
+                and refreshingly simplistic, and he is the best at creating simple and delightful user experiences. Brayden would be an asset to any team and 
+                I highly recommend him for any frontend developer job.
+              `}
+              giverName={'Kyle Johnson'}
+              giverPosition={'Software Engineer at Noke'}
+              />
+          </Carousel>
         </div>
       </div>
     </div>
