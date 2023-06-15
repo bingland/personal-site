@@ -38,7 +38,7 @@ function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, sho
       fontFamily: `'League Spartan', sans-serif`,
     },
     desc: {
-      fontSize: 16,
+      fontSize: 17,
       fontWeight: 'lighter',
       maxWidth: 440,
     },
@@ -63,7 +63,9 @@ function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, sho
       height: 210,
       borderRadius: 20,
       background: theme.backgroundColor,
+      border: `1px solid ${theme.borderColor}`,
       boxShadow: `9px 9px ${highlightColor || theme.themeColor}`,
+      // boxShadow: `9px 9px #444444`,
     }
   })
   const css = useStyles()
@@ -74,7 +76,7 @@ function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, sho
       <div className={css.divider} />
       <div className={css.desc}>{desc}</div>
       <div className={css.linksArea}>
-        {gallery && <Button text={'View Gallery'} onClick={toggleGallery} color={highlightColor} icon={'viewsite'} />}
+        {gallery && <Button text={'View Gallery'} onClick={toggleGallery} color={highlightColor} icon={'gallery'} />}
         {site && <Button text={'Visit Site'} color={highlightColor} href={site} icon={'viewsite'} />}
         {about && <Button text={'More Info'} color={highlightColor} href={about} icon={'viewsite'} />}
         {repo && <Button text={'View Repo'} color={highlightColor} href={repo} icon={'github'} />}

@@ -4,6 +4,9 @@ import { ThemeContext } from '../../App'
 import ProjectBox from '../../components/ProjectBox'
 import NokeGallery from './nokeGallery'
 
+import unlockingUnit from '../../images/unlockingUnit.jpg'
+import unlockingUnitHand from '../../images/unlockingUnitHand.png'
+
 function Portfolio() {
   const [nokeGallery, setNokeGallery] = useState(false)
   const toggleNokeGallery = () => setNokeGallery(!nokeGallery)
@@ -31,8 +34,38 @@ function Portfolio() {
       top: '50%',
       transform: 'translateY(-50%)',
     },
+
+    extraAreaContainer: {
+      backgroundImage: `url(${unlockingUnit})`,
+      backgroundSize: 'cover',
+      width: '100%',
+      height: '100%',
+      borderRadius: 19,
+      position: 'relative',
+    },
+    overflowHand: {
+      position: 'absolute',
+      height: '130%',
+      width: '100%',
+      overflow: 'hidden',
+      // background: 'green',
+      borderRadius: 19,
+      bottom: 0,
+    },
+    extraAreaHand: {
+      position: 'absolute',
+      width: 330,
+      right: -155,
+      top: 40,
+    },
   })
   const css = useStyles()
+
+  const nokeExtraArea = () => <div className={css.extraAreaContainer}>
+    <div className={css.overflowHand}>
+      <img className={css.extraAreaHand} src={unlockingUnitHand} alt={'hand hovering over noke unit'} />
+    </div>
+  </div>
 
   return (
     <div className={css.projectsContainer}>
@@ -47,7 +80,8 @@ function Portfolio() {
           gallery={true}
           size={2}
           showGallery={nokeGallery}
-          toggleGallery={toggleNokeGallery} />
+          toggleGallery={toggleNokeGallery}
+          extraArea={nokeExtraArea()} />
         <ProjectBox 
           title={'Color Accessibility App'} 
           desc={'React App that calculates the accessibility of a color scheme according to different types of colorblindness.'} 
