@@ -38,3 +38,14 @@ export const EmailIcon = (props: IconProps) => (
   </svg>
 )
 
+export const MainLogo = (props: IconProps) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 117.52 117.52" width={props.width || "24px"} height={props.height || "24px"}>
+    <g>
+      <path style={{fill: props.color || '#126ab3'}} d="M111,31.81A58.8,58.8,0,0,0,29.38,7.86Z"/>
+      <path style={{fill: props.color || '#126ab3'}} d="M0,58.76c0,.77,0,1.54.05,2.31l20.19-4.31V14.39A58.6,58.6,0,0,0,0,58.76Z"/>
+      <path style={{fill: props.color || '#126ab3'}} d="M38.2,113.82A58.82,58.82,0,0,0,107.25,92Z"/>
+      <path style={{fill: props.color || '#126ab3'}} d="M20.24,67.45l-20-3.91a58.63,58.63,0,0,0,20,39.59Z"/>
+      <path style={{fill: props.color || '#126ab3'}} d="M117.52,58.76a58.56,58.56,0,0,0-4.22-21.89L20.24,56.76V67.45l91,17.76A58.46,58.46,0,0,0,117.52,58.76Z"/>
+    </g>
+  </svg>
+)
