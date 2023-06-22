@@ -19,7 +19,7 @@ function Portfolio() {
       position: 'absolute',
       top: 0,
       left: 0,
-      paddingBottom: 80,
+      paddingBottom: 40,
       // borderLeft: `10px solid ${theme.themeColor}`
     },
     projectsGrid: {
@@ -40,7 +40,7 @@ function Portfolio() {
       backgroundSize: 'cover',
       width: '100%',
       height: '100%',
-      borderRadius: 19,
+      borderRadius: 14,
       position: 'relative',
     },
     overflowHand: {
@@ -49,14 +49,14 @@ function Portfolio() {
       width: '100%',
       overflow: 'hidden',
       // background: 'green',
-      borderRadius: 19,
+      borderRadius: 16,
       bottom: 0,
     },
     extraAreaHand: {
       position: 'absolute',
       width: 330,
       right: -155,
-      top: 40,
+      top: 43,
     },
   })
   const css = useStyles()

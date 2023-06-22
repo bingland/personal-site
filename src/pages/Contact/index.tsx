@@ -31,13 +31,15 @@ function Contact() {
     },
     mainBox: {
       border: `1px solid ${theme.borderColor}`,
-      borderRadius: 49,
+      borderRadius: 25,
       overflow: 'hidden',
       display: 'grid',
       gridTemplateColumns: '300px 1fr',
       width: 850,
       height: 440,
-      boxShadow: `0px 9px ${theme.themeColor}`,
+      background: theme.backgroundColor,
+      // boxShadow: `0px 9px ${theme.themeColor}`,
+      boxShadow: theme.boxShadow,
     },
     connectArea: {
       borderRight: `1px solid ${theme.borderColor}`,
@@ -45,7 +47,6 @@ function Contact() {
     profileVisual: {
       width: '100%',
       background: theme.themeColor,
-      borderRadius: '48px 0 0 0',
       display: 'grid',
       justifyContent: 'center',
       height: 150,
@@ -61,7 +62,7 @@ function Contact() {
       display: 'flex',
       alignItems: 'center',
       flexDirection: 'column',
-      marginTop: 60,
+      marginTop: 70,
     },
     linkItem: {
       marginTop: 10,
@@ -132,13 +133,13 @@ function Contact() {
           </div>
           <div className={css.linkArea}>
             <div className={css.linkItem}>
-              <Button text={'Connect on LinkedIn'} icon={'linkedin'} color={'#0070ce'} width={'215px'} />
+              <Button text={'Connect on LinkedIn'} icon={'linkedin'} size={'lg'} color={'#0070ce'} width={'230px'} />
             </div>
             <div className={css.linkItem}>
-              <Button text={'Check out my GitHub'} icon={'github'} color={'#4B4B4B'} width={'215px'} />
+              <Button text={'Check out my GitHub'} icon={'github'} size={'lg'} color={'#4B4B4B'} width={'230px'} />
             </div>
             <div className={css.linkItem}>
-              <Button text={'Send me an email'} icon={'email'} color={'#E3421E'} width={'215px'} />
+              <Button text={'Send me an Email'} icon={'email'} size={'lg'} color={'#E3421E'} width={'230px'} />
             </div>
           </div>
         </div>
@@ -161,16 +162,6 @@ function Contact() {
             }}
             >
 
-            <Recommendation 
-              title={'Highly Skilled and Professional'}
-              text={`
-                Brayden started at Noke and immediately hit the ground running. He instantly dove in and learned our processes and asked insightful 
-                questions so he could start working immediately. Shortly after starting work he was already contributing, opening PRs, and even adding 
-                some awesome and advanced new features.
-              `}
-              giverName={'Mikey Johnston'}
-              giverPosition={'Frontend Developer at Angel Studios'}
-              />
             <Recommendation 
               title={'A Valuable Asset For Any Team'}
               text={`
@@ -200,6 +191,16 @@ function Contact() {
               `}
               giverName={'Kyle Johnson'}
               giverPosition={'Software Engineer at Noke'}
+              />
+            <Recommendation 
+              title={'An Excellent Collaborator'}
+              text={`
+                Brayden started at Noke and immediately hit the ground running. He instantly dove in and learned our processes and asked insightful 
+                questions so he could start working immediately. Shortly after starting work he was already contributing, opening PRs, and even adding 
+                some awesome and advanced new features.
+              `}
+              giverName={'Mikey Johnston'}
+              giverPosition={'Frontend Developer at Angel Studios'}
               />
           </Carousel>
         </div>

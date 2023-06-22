@@ -21,12 +21,12 @@ function Button({color, text, width, size = 'md', icon, href, onClick, ...props}
     buttonContainer: {
       border: `1px solid ${theme.borderColor}`,
       borderRadius: 50,
-      height: size === 'lg' ? 40 : size === 'md' ? 35 : size === 'sm' ? 30 : 35,
+      height: size === 'lg' ? 37 : size === 'md' ? 35 : size === 'sm' ? 30 : 35,
       display: 'flex',
       gap: 7,
       alignItems: 'center',
       backgroundColor: color || theme.themeColor,
-      padding: `0 13px 0 ${size === 'lg' ? 5 : size === 'md' ? 4 : size === 'sm' ? 3 : 4}px`,
+      padding: `0 13px 0 ${size === 'lg' ? 4 : size === 'md' ? 4 : size === 'sm' ? 3 : 4}px`,
       cursor: 'pointer',
       width: width || 'min-content',
       whiteSpace: 'nowrap',
@@ -35,9 +35,9 @@ function Button({color, text, width, size = 'md', icon, href, onClick, ...props}
     iconContainer: {
       // TODO: not always with bg color and border
       backgroundColor: theme.buttonFontColor,
-      border: `1px solid ${theme.borderColor}`,
-      width: size === 'lg' ? 30 : size === 'md' ? 27 : size === 'sm' ? 25 : 28,
-      height: size === 'lg' ? 30 : size === 'md' ? 27 : size === 'sm' ? 25 : 28,
+      // border: `1px solid ${theme.borderColor}`,
+      width: size === 'lg' ? 27 : size === 'md' ? 27 : size === 'sm' ? 25 : 28,
+      height: size === 'lg' ? 27 : size === 'md' ? 27 : size === 'sm' ? 25 : 28,
       borderRadius: 30,
       display: 'grid',
       placeItems: 'center',

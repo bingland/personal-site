@@ -13,8 +13,6 @@ function Landing() {
       top: 0,
       left: 0,
       color: theme.fontColor,
-      backgroundColor: theme.backgroundColor,
-      borderLeft: `10px solid ${theme.themeColor}`
     },
     contentContainer: {
       margin: '0 auto',
@@ -30,14 +28,14 @@ function Landing() {
       
     },
     mainHeader: {
-      fontSize: 45,
+      fontSize: 40,
       fontWeight: 'bold',
       color: theme.themeColor,
-      marginBottom: 20,
+      marginBottom: 15,
       fontFamily: `'League Spartan', sans-serif`,
     },
     mainParagraph: {
-      fontSize: 28,
+      fontSize: 25,
     },
 
     photoArea: {
@@ -47,8 +45,8 @@ function Landing() {
       backgroundColor: '#f2f2f2',
       border: `1px solid black`,
       borderRadius: 15, 
-      width: 340,
-      height: 340,
+      width: 320,
+      height: 320,
       margin: '0 auto',
     },
   })

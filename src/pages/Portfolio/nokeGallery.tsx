@@ -3,6 +3,10 @@ import { createUseStyles } from 'react-jss'
 import { ThemeContext } from '../../App'
 import Gallery from '../../components/Gallery'
 
+// cover photo
+import nokeUnlockCoverPhoto from '../../images/nokeGallery/nokeUnlockCoverPhoto.png'
+
+// gallery photos
 import createFacilityImageScreen from '../../images/nokeGallery/createFacilityImageScreen.jpg'
 import darkToastPreviews from '../../images/nokeGallery/darkToastPreviews.png'
 import lightToastPreviews from '../../images/nokeGallery/lightToastPreviews.png'
@@ -40,7 +44,7 @@ function NokeGallery({toggle}: NokeGalleryProps) {
       image: permissionsCard,
       description: 'Permissions Card View'
     },
-    {
+    { // needs to be switched because of typo
       image: permissionsGraph,
       description: 'Permissions Graph View',
     },
@@ -63,6 +67,7 @@ function NokeGallery({toggle}: NokeGalleryProps) {
         toggle={toggle}
         gallery={gallery}
         galleryColor={'#0070ce'}
+        coverPhoto={nokeUnlockCoverPhoto}
         />
     </div>
   )

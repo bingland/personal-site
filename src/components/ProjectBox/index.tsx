@@ -29,7 +29,9 @@ function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, sho
       height: 260,
       borderRadius: 25,
       padding: 25,
-      boxShadow: `0px 9px ${highlightColor || theme.themeColor}`,
+      background: theme.backgroundColor,
+      // boxShadow: `0px 9px ${highlightColor || theme.themeColor}`,
+      boxShadow: theme.boxShadow,
     },
 
     title: {
@@ -57,14 +59,17 @@ function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, sho
 
     extraArea: {
       position: 'absolute',
-      top: 25,
-      right: 25,
-      width: 260,
-      height: 210,
-      borderRadius: 20,
+      top: 20,
+      right: 20,
+      width: 265,
+      height: 215,
+      borderRadius: 15,
       background: theme.backgroundColor,
       border: `1px solid ${theme.borderColor}`,
-      boxShadow: `9px 9px ${highlightColor || theme.themeColor}`,
+      // boxShadow: `9px 9px ${highlightColor || theme.themeColor}`,
+      // boxShadow: `9px 9px lightgrey`,
+      boxShadow: theme.boxShadow,
+
       // boxShadow: `9px 9px #444444`,
     }
   })
