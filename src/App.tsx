@@ -8,6 +8,7 @@ interface ThemeContextInterface {
   setDarkTheme: (darkTheme: boolean) => void
   toggleTheme: () => void
   setThemeColor: (color: string) => void
+  animations: any // change to CSSProperties? 
   backgroundColor: string
   boxShadow: string
   buttonFontColor: string
@@ -21,6 +22,7 @@ export const ThemeContext = createContext<ThemeContextInterface>({
   setDarkTheme: () => {},
   toggleTheme: () => {},
   setThemeColor: () => {},
+  animations: {},
   backgroundColor: '',
   boxShadow: '',
   buttonFontColor: '',
@@ -44,6 +46,20 @@ function App() {
     setDarkTheme,
     toggleTheme,
     setThemeColor,
+    animations: { 
+      fadeDown: {
+        animation: '0.8s forwards fadeDown ease-out', opacity: 0,
+      },
+      fadeDownShort: {
+        animation: '0.5s forwards fadeDownShort ease-out', opacity: 0,
+      },
+      fadeIn: {
+        animation: '2s forwards fadeIn ease-out', opacity: 0,
+      },
+      fadeInFast: {
+        animation: '0.3s forwards fadeIn ease-out', opacity: 0,
+      }
+    },
     backgroundColor: 'rgba(255,255,255,0.6)',
     boxShadow: ' 5px 5px 16px -3px rgba(0,0,0,0.15)',
     buttonFontColor: '#fff',
