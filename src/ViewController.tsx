@@ -5,6 +5,8 @@ import Header from './components/Header'
 import Landing from './pages/Landing'
 import Portfolio from './pages/Portfolio'
 import Contact from './pages/Contact'
+import Background from './components/Background'
+
 import { ThemeContext } from './App'
 
 function ViewController() {
@@ -24,6 +26,7 @@ function ViewController() {
 
   return (
     <div className={css.appContainer}>
+      <Background currentPage={currentPage} />
       <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
       {currentPage === 'landing' && <Landing />}
       {currentPage === 'portfolio' && <Portfolio />}

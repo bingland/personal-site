@@ -1,4 +1,5 @@
 import { useState, createContext } from 'react'
+import { createTheming } from 'react-jss'
 
 import ViewController from './ViewController'
 
@@ -8,6 +9,7 @@ interface ThemeContextInterface {
   toggleTheme: () => void
   setThemeColor: (color: string) => void
   backgroundColor: string
+  boxShadow: string
   buttonFontColor: string
   fontColor: string
   borderColor: string
@@ -20,16 +22,20 @@ export const ThemeContext = createContext<ThemeContextInterface>({
   toggleTheme: () => {},
   setThemeColor: () => {},
   backgroundColor: '',
+  boxShadow: '',
   buttonFontColor: '',
   fontColor: '',
   borderColor: '',
   themeColor: '',
 })
 
+export const theming = createTheming(ThemeContext)
+export const { ThemeProvider, useTheme } = theming
+
 function App() {
 
   const [isDarkTheme, setDarkTheme] = useState(false)
-  const [themeColor, setThemeColor] = useState('#9491E9')
+  const [themeColor, setThemeColor] = useState('#0070ce')
 
   const toggleTheme = () => setDarkTheme(!isDarkTheme)
 
@@ -38,17 +44,18 @@ function App() {
     setDarkTheme,
     toggleTheme,
     setThemeColor,
-    backgroundColor: '#E9EFFF',
+    backgroundColor: 'rgba(255,255,255,0.6)',
+    boxShadow: ' 5px 5px 16px -3px rgba(0,0,0,0.15)',
     buttonFontColor: '#fff',
     fontColor: '#000',
-    borderColor: '#000',
+    borderColor: 'rgba(0,0,0,0.55)',
     themeColor,
   }
 
   return (
-    <ThemeContext.Provider value={ThemeValues}>
+    <ThemeProvider theme={ThemeValues}>
       <ViewController />
-    </ThemeContext.Provider>
+    </ThemeProvider>
   )
 }
 
