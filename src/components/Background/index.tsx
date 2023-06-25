@@ -7,7 +7,7 @@ import useMousePosition from '../../utilities/useMousePosition'
 import CodeBG from './codeBg'
 import LogoBg from './logoBg'
 import CirclesBG from './circlesBg'
-// import { hexToRGBA } from '../../utilities'
+import { hexToRGBA } from '../../utilities'
 
 interface BackgroundProps {
   currentPage: PageTypes
@@ -48,7 +48,8 @@ function Background ({ currentPage }: BackgroundProps) {
         // background: `linear-gradient(${calcGradientAngle()}deg, rgba(189,208,255,1) 0%, rgba(193,224,255,1) 49%, rgba(222,255,249,1) 100%)`,
         // background: `linear-gradient(${calcGradientAngle()}deg, rgba(173,255,243,1) 0%, rgba(253,255,176,1) 100%)`,
         // background: `linear-gradient(${calcGradientAngle()}deg, ${hexToRGBA('#0070ce', 0.72)} 0%, ${hexToRGBA('#6700ce', 0.19)} 100%)`,
-        background: `linear-gradient(${calcGradientAngle()}deg, rgba(208,176,255,1) 0%, rgba(173,255,243,1) 100%)`,
+        // background: `linear-gradient(${calcGradientAngle()}deg, rgba(208,176,255,1) 0%, rgba(173,255,243,1) 100%)`,
+        background: `linear-gradient(${calcGradientAngle()}deg, #b0b2ff 10%, #adfff3 100%)`,
         // background: `linear-gradient(${calcGradientAngle()}deg, rgba(201,217,255,1) 0%, rgba(207,231,255,1) 49%, rgba(227,255,250,1) 100%)`,
         // background: `linear-gradient(${calcGradientAngle()}deg, rgba(198,229,255,1) 0%, rgba(235,246,255,1) 100%)`,
         // opacity: currentPage !== 'landing' ? 0.7 : 1,

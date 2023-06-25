@@ -42,7 +42,7 @@ function Contact() {
       '@media (max-width: 920px)': {
         gridTemplateColumns: '300px',
         width: 'auto',
-        height: 400,
+        height: 410,
       },
       '@media (max-width: 350px)': {
         gridTemplateColumns: '270px',
@@ -51,10 +51,13 @@ function Contact() {
     },
     connectArea: {
       borderRight: `1px solid ${theme.borderColor}`,
+      '@media (max-width: 920px)': {
+        borderRight: 'none',
+      },
     },
     profileVisual: {
       width: '100%',
-      background: theme.themeColor,
+      background: `linear-gradient(100deg, #17ACFF 0%, #A129FF 100%)`,
       display: 'grid',
       justifyContent: 'center',
       height: 150,

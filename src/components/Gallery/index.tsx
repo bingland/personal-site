@@ -212,6 +212,7 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       placeItems: 'center',
       alignContent: 'center',
       height: '100%',
+      paddingBottom: 15, // ! remove this if the descriptions are put back
     },
     fullImage: {
       maxWidth: 600,
@@ -309,7 +310,7 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
                       <div className={css.fullImage}>
                         <img className={css.fullImageElement} src={galleryItem.image} alt={galleryItem.description} loading={'lazy'} />
                       </div>
-                      <div className={css.imageDescription}>{galleryItem.description}</div>
+                      {/* <div className={css.imageDescription}>{galleryItem.description}</div> */}
                     </div>)}
                 </Carousel>
                 <div className={css.controls}>

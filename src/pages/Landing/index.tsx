@@ -2,6 +2,8 @@ import { useContext } from 'react'
 import { createUseStyles } from 'react-jss'
 import { ThemeContext } from '../../App'
 
+import profilePic from '../../images/photosessSquare.jpg'
+
 function Landing() {
   const theme = useContext(ThemeContext)
   
@@ -71,8 +73,10 @@ function Landing() {
     },
     photo: {
       backgroundColor: '#f2f2f2',
+      backgroundImage: `url(${profilePic})`,
+      backgroundSize: 'cover',
       border: `1px solid black`,
-      borderRadius: 15, 
+      borderRadius: 25, 
       width: 320,
       height: 320,
       margin: '0 auto',

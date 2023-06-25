@@ -25,6 +25,7 @@ function Header(props: HeaderProps) {
       },
       '@media (max-width: 575px)': {
         padding: '0 30px',
+        position: 'fixed',
       }
     },
     divider: {
