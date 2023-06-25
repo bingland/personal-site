@@ -20,6 +20,9 @@ function Portfolio() {
       top: 0,
       left: 0,
       paddingBottom: 40,
+      '@media (max-width: 1300px)': {
+        overflowY: 'auto',
+      },
     },
     projectsGrid: {
       width: '100%',
@@ -27,11 +30,24 @@ function Portfolio() {
       maxWidth: 1200,
       display: 'flex',
       flexWrap: 'wrap',
-      justifyContent: 'space-aroun',
       gap: 30,
       position: 'relative',
       top: '50%',
       transform: 'translateY(-50%)',
+      '@media (max-width: 1199px)': {
+        top: 100,
+        transform: 'none',
+        justifyContent: 'center',
+        padding: '0 20px',
+      },
+      '@media (max-width: 800px)': {
+        gap: 20,
+        paddingBottom: 50,
+      },
+      '@media (max-width: 500px)': {
+        padding: 0,
+        paddingBottom: 50,
+      },
     },
 
     extraAreaContainer: {
@@ -69,15 +85,15 @@ function Portfolio() {
   return (
     <div className={css.projectsContainer}>
       {/* galleries */}
-      {nokeGallery && <NokeGallery toggle={toggleNokeGallery} />}
+      {nokeGallery && theme.width > 870 && <NokeGallery toggle={toggleNokeGallery} />}
       <div className={css.projectsGrid}>
         <ProjectBox 
           title={'Noke Smart Entry'} 
           desc={'I worked with Nokē from June 2021 to April 2023. Nokē® Smart Entry is an electronic smart lock & access control system that allows tenants to access your facility & their unit using their smart device.'} 
           highlightColor={'#0070ce'}
           about={'https://www.janusintl.com/products/noke'} 
-          gallery={true}
-          size={2}
+          gallery={theme.width > 870}
+          size={theme.width > 1000 ? 2 : 1}
           showGallery={nokeGallery}
           toggleGallery={toggleNokeGallery}
           style={{...theme.animations.fadeDownShort, animationDelay: '0.2s'}}

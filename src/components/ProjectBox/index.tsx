@@ -2,7 +2,6 @@ import { CSSProperties, useContext } from 'react'
 import { createUseStyles } from 'react-jss'
 import { ThemeContext } from '../../App'
 import Button from '../Button'
-// import classNames from 'classnames'
 
 interface ProjectBoxProps {
   highlightColor?: string
@@ -26,24 +25,36 @@ function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, sho
     projectBoxContainer: {
       position: 'relative',
       border: `1px solid ${theme.borderColor}`,
-      width: (size * 380) + (size > 1 ? 30 : 0),
       height: 260,
       borderRadius: 25,
       padding: 25,
       background: theme.backgroundColor,
-      // boxShadow: `0px 9px ${highlightColor || theme.themeColor}`,
       boxShadow: theme.boxShadow,
+      '@media (max-width: 500px)': {
+        height: 240,
+        padding: 20,
+        borderRadius: 20,
+      }
     },
 
     title: {
       fontSize: 25,
       fontWeight: 'bold',
       fontFamily: `'League Spartan', sans-serif`,
+      '@media (max-width: 500px)': {
+        fontSize: 23,
+      }
     },
     desc: {
       fontSize: 17,
       fontWeight: 'lighter',
       maxWidth: 440,
+      '@media (max-width: 1000px)': {
+        fontSize: 16,
+      },
+      '@media (max-width: 500px)': {
+        fontSize: 14,
+      }
     },
     divider: {
       borderTop: `1px solid ${theme.borderColor}`,
@@ -67,17 +78,20 @@ function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, sho
       borderRadius: 15,
       background: theme.backgroundColor,
       border: `1px solid ${theme.borderColor}`,
-      // boxShadow: `9px 9px ${highlightColor || theme.themeColor}`,
-      // boxShadow: `9px 9px lightgrey`,
       boxShadow: theme.boxShadow,
-
-      // boxShadow: `9px 9px #444444`,
     }
   })
   const css = useStyles()
 
+  const calcWidth = () => {
+    return (size * (theme.width > 500 ? 380 : 320)) + (size > 1 ? 30 : 0)
+  }
+  // const calcBtnSize = () => {
+  //   return theme.width > 500 ? 'md' : 'sm'
+  // }
+
   return (
-    <div className={css.projectBoxContainer} style={style}>
+    <div className={css.projectBoxContainer} style={{...style, width: calcWidth(),}}>
       <div className={css.title}>{title}</div>
       <div className={css.divider} />
       <div className={css.desc}>{desc}</div>

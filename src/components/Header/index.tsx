@@ -20,6 +20,12 @@ function Header(props: HeaderProps) {
       top: 0,
       zIndex: 5,
       fontFamily: `'League Spartan', sans-serif`,
+      '@media (max-width: 1300px)': {
+        padding: '0 50px',
+      },
+      '@media (max-width: 575px)': {
+        padding: '0 30px',
+      }
     },
     divider: {
       margin: '0 auto',
@@ -43,19 +49,32 @@ function Header(props: HeaderProps) {
     logoIcon: {
       width: 40,
       height: 40,
+      '@media (max-width: 430px)': {
+        width: 37,
+        height: 37,
+      }
     },
     logoText: {
       fontSize: 25,
       color: theme.themeColor,
+      '@media (max-width: 575px)': {
+        display: 'none',
+      }
     },
 
     itemsContainer: {
       gap: 50,
+      '@media (max-width: 430px)': {
+        gap: 30,
+      }
     },
     item: {
       fontSize: 20,
       cursor: 'pointer',
       position: 'relative',
+      '@media (max-width: 430px)': {
+        fontSize: 18,
+      }
     },
     landingColor: {
       color: theme.buttonFontColor,

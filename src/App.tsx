@@ -1,5 +1,6 @@
 import { useState, createContext } from 'react'
 import { createTheming } from 'react-jss'
+import useWindowDimensions from './utilities/useWindowDimensions'
 
 import ViewController from './ViewController'
 
@@ -15,6 +16,8 @@ interface ThemeContextInterface {
   fontColor: string
   borderColor: string
   themeColor: string
+  width: number
+  height: number
 }
 
 export const ThemeContext = createContext<ThemeContextInterface>({
@@ -29,6 +32,8 @@ export const ThemeContext = createContext<ThemeContextInterface>({
   fontColor: '',
   borderColor: '',
   themeColor: '',
+  width: 0,
+  height: 0
 })
 
 export const theming = createTheming(ThemeContext)
@@ -38,6 +43,7 @@ function App() {
 
   const [isDarkTheme, setDarkTheme] = useState(false)
   const [themeColor, setThemeColor] = useState('#0070ce')
+  const { height, width } = useWindowDimensions()
 
   const toggleTheme = () => setDarkTheme(!isDarkTheme)
 
@@ -66,6 +72,8 @@ function App() {
     fontColor: '#000',
     borderColor: 'rgba(0,0,0,0.55)',
     themeColor,
+    height,
+    width,
   }
 
   return (

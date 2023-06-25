@@ -39,6 +39,15 @@ function Contact() {
       background: theme.backgroundColor,
       // boxShadow: `0px 9px ${theme.themeColor}`,
       boxShadow: theme.boxShadow,
+      '@media (max-width: 920px)': {
+        gridTemplateColumns: '300px',
+        width: 'auto',
+        height: 400,
+      },
+      '@media (max-width: 350px)': {
+        gridTemplateColumns: '270px',
+        width: 'auto',
+      },
     },
     connectArea: {
       borderRight: `1px solid ${theme.borderColor}`,
@@ -69,9 +78,11 @@ function Contact() {
       alignItems: 'center',
     },
     recommendationArea: {
-      // width: '100%',
       maxWidth: 550,
       position: 'relative',
+      '@media (max-width: 920px)': {
+        display: 'none',
+      }
     },
     recommendation: {
       padding: 50,

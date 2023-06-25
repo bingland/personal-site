@@ -13,6 +13,12 @@ function Landing() {
       top: 0,
       left: 0,
       color: theme.fontColor,
+      '@media (max-width: 1300px)': {
+        padding: '0 50px',
+      },
+      '@media (max-width: 500px)': {
+        padding: '0 25px',
+      },
     },
     contentContainer: {
       margin: '0 auto',
@@ -22,6 +28,14 @@ function Landing() {
       display: 'grid',
       gridTemplateColumns: '1fr 450px',
       alignItems: 'center',
+      '@media (max-width: 1025px)': {
+        gridTemplateColumns: '1fr',
+        placeItems: 'start',
+        alignContent: 'start',
+        gap: 50,
+        paddingTop: 100,
+        textAlign: 'center',
+      }
     },
 
     mainTextArea: {
@@ -33,13 +47,27 @@ function Landing() {
       color: theme.themeColor,
       marginBottom: 15,
       fontFamily: `'League Spartan', sans-serif`,
+      '@media (max-width: 580px)': {
+        fontSize: 30,
+      },
+      '@media (max-width: 430px)': {
+        fontSize: 26,
+      },
     },
     mainParagraph: {
       fontSize: 25,
+      '@media (max-width: 580px)': {
+        fontSize: 20,
+      },
+      '@media (max-width: 380px)': {
+        fontSize: 16,
+      },
     },
 
     photoArea: {
-
+      '@media (max-width: 1025px)': {
+        width: '100%',
+      }
     },
     photo: {
       backgroundColor: '#f2f2f2',
@@ -48,6 +76,10 @@ function Landing() {
       width: 320,
       height: 320,
       margin: '0 auto',
+      '@media (max-width: 500px)': {
+        width: 240,
+        height: 240,
+      },
     },
   })
   const css = useStyles()

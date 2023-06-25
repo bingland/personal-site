@@ -23,7 +23,8 @@ interface GalleryProps {
 
 function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black', coverPhoto, gallery, toggle, ...props}: GalleryProps) {
   const theme = useContext(ThemeContext)
-  const slideWidth = 1025
+  const { width } = theme
+  const slideWidth = width > 1530 ? 1025 : width > 1300 ? 800 : width > 1125 ? 1000 : 750
   
   const useStyles = createUseStyles({
     galleryContainer: {
@@ -38,15 +39,18 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       cursor: 'pointer',
       display: 'grid',
       placeItems: 'center',
+      // transition: '0.2s background ease-in-out',
+      // '&:hover': {
+      //   background: 'rgba(0,0,0,0.3)',
+      // }
     },
     galleryElements: {
-      margin: '0 auto', 
-      maxWidth: 1400,
+      margin: '0 auto',
       maxHeight: 1000,
       width: '100%',
       height: '100%',
       display: 'grid',
-      gridTemplateColumns: `350px ${slideWidth}px`,
+      justifyContent: 'center',
       gap: 25,
     },
     card: {
@@ -60,6 +64,9 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
     },
     infoSection: {
       padding: 20,
+      '@media (max-width: 1300px)': {
+        display: 'none',
+      }
     },
     displaySection: {
       overflowY: 'auto',
@@ -116,7 +123,13 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       gridTemplateColumns: 'repeat(4, 1fr)',
       gap: 20,
       padding: 30,
-      '@media (max-width: 1400px)': {
+      '@media (max-width: 1530px)': {
+        gridTemplateColumns: 'repeat(3, 1fr)',
+      },
+      '@media (max-width: 1300px)': {
+        gridTemplateColumns: 'repeat(4, 1fr)',
+      },
+      '@media (max-width: 1125px)': {
         gridTemplateColumns: 'repeat(3, 1fr)',
       }
     },
@@ -147,6 +160,7 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       borderRadius: 50,
       background: 'rgba(255,255,255,0.5)',
       boxShadow: theme.boxShadow,
+      userSelect: 'none',
     },
     controlBtn: {
       backgroundColor: galleryColor,
@@ -250,7 +264,9 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
 
   return (
     <div className={css.galleryContainer} onClick={toggle} style={{...theme.animations.fadeInFast}}>
-      <div className={css.galleryElements}>
+      <div className={css.galleryElements} style={{ 
+        gridTemplateColumns: width > 1300 ? `350px ${slideWidth}px` : `${slideWidth}px`, 
+      }}>
         <div className={classNames(css.card, css.infoSection)} onClick={e => e.stopPropagation()}>
           <div className={css.coverPhotoDiv} />
           <div className={css.infoTitle}>{title}</div>
