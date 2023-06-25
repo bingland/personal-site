@@ -55,13 +55,52 @@ function Header(props: HeaderProps) {
     item: {
       fontSize: 20,
       cursor: 'pointer',
+      position: 'relative',
     },
     landingColor: {
       color: theme.buttonFontColor,
     },
     pageColor: {
       color: theme.fontColor,
-    }
+    },
+    selected: {
+      transition: 'opacity 0.2s ease-in-out',
+      '&:hover': {
+        opacity: 1,
+      },
+      '&:before': {
+        content: '""',
+        position: 'absolute',
+        margin: '0 auto',
+        width: 20,
+        height: 1,
+        bottom: -9,
+        left: 0,
+        right: 0,
+        opacity: 1,
+        backgroundColor: 'black',
+        transition: 'all 0.25s ease-out 0s',
+      },
+    },
+    unselected: {
+      transition: 'opacity 0.2s ease-in-out',
+      '&:hover': {
+        opacity: 0.7,
+      },
+      '&:before': {
+        content: '""',
+        position: 'absolute',
+        margin: '0 auto',
+        width: 20,
+        height: 1,
+        bottom: -9,
+        left: 0,
+        right: 0,
+        opacity: 0,
+        backgroundColor: 'black',
+        transition: 'all 0.25s ease-out 0s',
+      },
+    },
     
   })
   const css = useStyles()
@@ -71,21 +110,28 @@ function Header(props: HeaderProps) {
     // theme.setThemeColor('green')
     props.setCurrentPage(page)
   }
+  const isSelected = (page: PageTypes) => {
+    return page === props.currentPage
+  }
 
   return (
     <nav className={css.headerContainer}>
       <div className={css.divider}>
-        <div onClick={() => clickItem('landing')} className={classNames(css.flex, css.logoContainer)}>
+        <div onClick={() => clickItem('landing')} style={{...theme.animations.fadeDown, animationDelay: '0.6s'}} className={classNames(css.flex, css.logoContainer)}>
           <div className={css.logoIcon}>
             <MainLogo color={theme.themeColor} width={'100%'} height={'100%'} />
           </div>
           <div className={css.logoText}>Brayden England</div>
         </div>
         <div className={classNames(css.flex, css.itemsContainer)}>
-          <div onClick={() => clickItem('portfolio')} className={classNames(css.item, css.pageColor)}>Portfolio</div>
+          <div onClick={() => clickItem('portfolio')} style={{...theme.animations.fadeDown, animationDelay: '0.8s'}} className={classNames(css.item, css.pageColor)}>
+            <div className={classNames(isSelected('portfolio') ? css.selected : css.unselected)}>Portfolio</div>
+          </div>
           {/* will uncomment later */}
           {/* <div onClick={() => clickItem('experience')} className={classNames(css.item, css.pageColor)}>Experience</div> */}
-          <div onClick={() => clickItem('contact')} className={classNames(css.item, css.pageColor)}>Contact</div>
+          <div onClick={() => clickItem('contact')} style={{...theme.animations.fadeDown, animationDelay: '1s'}} className={classNames(css.item, css.pageColor)}>
+            <div className={classNames(isSelected('contact') ? css.selected : css.unselected)}>Contact</div>
+          </div>
         </div>
       </div>
     </nav>

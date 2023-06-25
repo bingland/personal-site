@@ -59,7 +59,7 @@ function CodeBG () {
   `
 
   return (
-    <div className={css.codeBgContainer}>
+    <div className={css.codeBgContainer} style={{...theme.animations.fadeIn,}}>
       <div className={css.codeText} style={{ 
         left: defaultPercent, 
         top: defaultPercent,

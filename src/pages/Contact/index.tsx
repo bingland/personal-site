@@ -27,7 +27,6 @@ function Contact() {
       // paddingTop: 80,
       display: 'grid',
       placeItems: 'center',
-      // borderLeft: `10px solid ${theme.themeColor}`
     },
     mainBox: {
       border: `1px solid ${theme.borderColor}`,
@@ -125,11 +124,11 @@ function Contact() {
   
 
   return (
-    <div className={css.contactContainer}>
+    <div className={css.contactContainer} style={{...theme.animations.fadeDown, animationDelay: '0.1s'}}>
       <div className={css.mainBox}>
         <div className={css.connectArea}>
           <div className={css.profileVisual}>
-            <img className={css.profileVisualImg} src={profilePic} alt={'Connect with Brayden England'} />
+            <img className={css.profileVisualImg} src={profilePic} alt={'Connect with Brayden England'} loading={'lazy'} />
           </div>
           <div className={css.linkArea}>
             <div className={css.linkItem}>

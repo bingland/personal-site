@@ -31,6 +31,10 @@ function Button({color, text, width, size = 'md', icon, href, onClick, ...props}
       width: width || 'min-content',
       whiteSpace: 'nowrap',
       fontSize: size === 'lg' ? 16 : size === 'md' ? 15 : size === 'sm' ? 13 : 15,
+      transition: 'opacity 0.2s ease-in-out',
+      '&:hover': {
+        opacity: 0.8,
+      }
     },
     iconContainer: {
       // TODO: not always with bg color and border

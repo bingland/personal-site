@@ -35,7 +35,7 @@ function Background ({ currentPage }: BackgroundProps) {
       height: '100vh',
       transition: 'background 1s ease, opacity 1s ease-in-out',
       // opacity: 0.5,
-      borderLeft: `10px solid ${theme.themeColor}`
+      // borderLeft: `10px solid ${theme.themeColor}`
     },
   })
   const css = useStyles()

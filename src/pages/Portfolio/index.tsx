@@ -20,7 +20,6 @@ function Portfolio() {
       top: 0,
       left: 0,
       paddingBottom: 40,
-      // borderLeft: `10px solid ${theme.themeColor}`
     },
     projectsGrid: {
       width: '100%',
@@ -63,7 +62,7 @@ function Portfolio() {
 
   const nokeExtraArea = () => <div className={css.extraAreaContainer}>
     <div className={css.overflowHand}>
-      <img className={css.extraAreaHand} src={unlockingUnitHand} alt={'hand hovering over noke unit'} />
+      <img className={css.extraAreaHand} src={unlockingUnitHand} alt={'hand hovering over noke unit'} loading={'lazy'} />
     </div>
   </div>
 
@@ -81,29 +80,33 @@ function Portfolio() {
           size={2}
           showGallery={nokeGallery}
           toggleGallery={toggleNokeGallery}
+          style={{...theme.animations.fadeDownShort, animationDelay: '0.2s'}}
           extraArea={nokeExtraArea()} />
         <ProjectBox 
           title={'Color Accessibility App'} 
           desc={'React App that calculates the accessibility of a color scheme according to different types of colorblindness.'} 
           highlightColor={'#9491E9'}
+          style={{...theme.animations.fadeDownShort, animationDelay: '0.3s'}}
           site={'https://prismcolor.netlify.app/'} 
           repo={'https://github.com/bingland/color-accessibility-app'} />
         <ProjectBox 
           title={'Translate to JSON'} 
           desc={'Translate a JSON object into different languages. Created with Svelte and NodeJS, uses a Puppeteer based backend for data scraping to bypass an API key. '} 
           highlightColor={'#2C6A72'}
-          // site={'https://translate-to-json.onrender.com/'} 
+          style={{...theme.animations.fadeDownShort, animationDelay: '0.4s'}}
           repo={'https://github.com/bingland/translateToJSON'} />
         <ProjectBox 
           title={'React Trivia'} 
           desc={'Trivia Game made with React and the Open Trivia DB API. Assignment for DGM 3790 at Utah Valley University.'} 
           highlightColor={'#E93323'}
+          style={{...theme.animations.fadeDownShort, animationDelay: '0.5s'}}
           site={'https://reacttrivia.netlify.app/'} 
           repo={'https://github.com/bingland/trivia-react'} />
         <ProjectBox 
           title={'1800 Clothing'} 
           desc={'1800s Clothing site is to provide period-accurate images of clothing from the 1800s. This is a group application that done for a Senior Project at Utah Valley University.'} 
           highlightColor={'#CCBCA6'}
+          style={{...theme.animations.fadeDownShort, animationDelay: '0.6s'}}
           site={'https://1800clothing.org/'} 
           repo={'https://github.com/timetoady/1800clothingSvelte1'} />
       </div>

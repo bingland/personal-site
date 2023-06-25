@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { CSSProperties, useContext } from 'react'
 import { createUseStyles } from 'react-jss'
 import { ThemeContext } from '../../App'
 import Button from '../Button'
@@ -12,13 +12,14 @@ interface ProjectBoxProps {
   gallery?: boolean
   showGallery?: boolean
   extraArea?: any
+  style?: CSSProperties
   toggleGallery?: () => void
   site?: string
   about?: string
   repo?: string
 }
 
-function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, showGallery, extraArea, toggleGallery, site, repo, ...props}: ProjectBoxProps) {
+function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, showGallery, extraArea, style, toggleGallery, site, repo, ...props}: ProjectBoxProps) {
   const theme = useContext(ThemeContext)
   
   const useStyles = createUseStyles({
@@ -76,7 +77,7 @@ function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, sho
   const css = useStyles()
 
   return (
-    <div className={css.projectBoxContainer}>
+    <div className={css.projectBoxContainer} style={style}>
       <div className={css.title}>{title}</div>
       <div className={css.divider} />
       <div className={css.desc}>{desc}</div>

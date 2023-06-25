@@ -27,8 +27,10 @@ function LogoBg ({currentPage}: CodeBGProps) {
   const css = useStyles()
 
   return (
-    <div className={css.logoBgContainer}>
-      <MainLogo color={theme.themeColor} width={'215%'} height={'215%'} />
+    <div style={{...theme.animations.fadeIn}}>
+      <div className={css.logoBgContainer}>
+        <MainLogo color={theme.themeColor} width={'215%'} height={'215%'} />
+      </div>
     </div>
   )
 }

@@ -57,13 +57,15 @@ function LogoBg ({currentPage}: CodeBGProps) {
   const css = useStyles()
 
   return (
-    <div className={css.circlesBgContainer}>
-      <div className={classNames(css.circle)} style={{animationDelay: '0.1s',width: 40, height: 40, left: '80%', top: '10%' }} />
-      <div className={classNames(css.circle)} style={{animationDelay: '0.8s',width: 40, height: 40, left: '10%', top: '90%' }} />
-      <div className={classNames(css.circle)} style={{animationDelay: '0.2s',width: 40, height: 40, left: '20%', top: '80%' }} />
-      <div className={classNames(css.circle)} style={{animationDelay: '0.1s',width: 300, height: 300, left: '10%', top: '20%' }} />
-      <div className={classNames(css.circle)} style={{animationDelay: '0.2s',width: 500, height: 500, left: '25%', bottom: '-18%' }} />
-      <div className={classNames(css.circle)} style={{animationDelay: '0.6s',width: 1200, height: 1200, right: '-10%', top: '-30%' }} />
+    <div style={{...theme.animations.fadeIn}}>
+      <div className={css.circlesBgContainer}>
+        <div className={classNames(css.circle)} style={{animationDelay: '0.1s',width: 40, height: 40, left: '80%', top: '10%' }} />
+        <div className={classNames(css.circle)} style={{animationDelay: '0.8s',width: 40, height: 40, left: '10%', top: '90%' }} />
+        <div className={classNames(css.circle)} style={{animationDelay: '0.2s',width: 40, height: 40, left: '20%', top: '80%' }} />
+        <div className={classNames(css.circle)} style={{animationDelay: '0.1s',width: 300, height: 300, left: '10%', top: '20%' }} />
+        <div className={classNames(css.circle)} style={{animationDelay: '0.2s',width: 500, height: 500, left: '25%', bottom: '-18%' }} />
+        <div className={classNames(css.circle)} style={{animationDelay: '0.6s',width: 1200, height: 1200, right: '-10%', top: '-30%' }} />
+      </div>
     </div>
   )
 }

@@ -53,7 +53,7 @@ function Landing() {
   const css = useStyles()
 
   return (
-    <div className={css.landingContainer}>
+    <div className={css.landingContainer} style={{...theme.animations.fadeDown, animationDelay: '0.1s'}}>
       <div className={css.contentContainer}>
         <div className={css.mainTextArea}>
           <h1 className={css.mainHeader}>Hey, my name's Brayden.</h1>
