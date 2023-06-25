@@ -14,6 +14,11 @@ import permissionsCard from '../../images/nokeGallery/permissionsCards.jpg'
 import permissionsGraph from '../../images/nokeGallery/permissionsGraph.jpg'
 import simpleSitesPage from '../../images/nokeGallery/simpleSitesPage.jpg'
 import tableRevamp from '../../images/nokeGallery/tableRevamp.jpg'
+import brandingRevamp1 from '../../images/nokeGallery/brandingRevamp1.png'
+import brandingRevamp2 from '../../images/nokeGallery/brandingRevamp2.png'
+import helpWizard1 from '../../images/nokeGallery/helpWizard1.jpg'
+import helpWizard2 from '../../images/nokeGallery/helpWizard2.jpg'
+import iPadMockupsAdobe from '../../images/nokeGallery/iPadMockupsAdobe.png'
 
 interface NokeGalleryProps {
   toggle: () => void
@@ -55,6 +60,26 @@ function NokeGallery({toggle}: NokeGalleryProps) {
     {
       image: tableRevamp,
       description: 'Table Revamp'
+    },
+    {
+      image: brandingRevamp1,
+      description: 'Branding Revamp Mockup 1'
+    },
+    {
+      image: brandingRevamp2,
+      description: 'Branding Revamp Mockup 2'
+    },
+    {
+      image: helpWizard1,
+      description: 'Help Wizard Mockup 1'
+    },
+    {
+      image: helpWizard2,
+      description: 'Help Wizard Mockup 2'
+    },
+    {
+      image: iPadMockupsAdobe,
+      description: 'iPad mockups for revamped Smart Entry App'
     }
   ]
 
