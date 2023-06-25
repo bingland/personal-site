@@ -67,6 +67,7 @@ function NokeGallery({toggle}: NokeGalleryProps) {
         toggle={toggle}
         gallery={gallery}
         galleryColor={'#0070ce'}
+        moreInfo={'https://www.janusintl.com/products/noke'}
         coverPhoto={nokeUnlockCoverPhoto}
         />
     </div>
