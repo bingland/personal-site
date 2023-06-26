@@ -1,1 +1,1 @@
-type PageTypes = 'landing' | 'portfolio' | 'experience' | 'contact'
+type PageTypes = 'landing' | 'portfolio' | 'experience' | 'contact' | 'loading'

@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useEffect } from 'react'
 import { createUseStyles } from 'react-jss'
 
 import Header from './components/Header'
@@ -7,6 +7,7 @@ import Portfolio from './pages/Portfolio'
 import Contact from './pages/Contact'
 import Background from './components/Background'
 import Animations from './components/Animation'
+import Loading from './pages/Loading'
 
 import { ThemeContext } from './App'
 
@@ -23,16 +24,27 @@ function ViewController() {
   })
   const css = useStyles()
 
-  const [currentPage, setCurrentPage] = useState<PageTypes>('landing')
+  const [currentPage, setCurrentPage] = useState<PageTypes>('loading')
+  const [isLoading, setIsLoading] = useState<boolean>(true)
+
+  useEffect(() => {
+    setTimeout(() => { 
+      setIsLoading(false) 
+      setTimeout(() => setCurrentPage('landing'), 1000)
+    }, 3000)
+  }, [])
 
   return (
     <div className={css.appContainer}>
+      <Loading show={isLoading} />
       <Background currentPage={currentPage} />
       <Animations />
-      <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      {currentPage === 'landing' && <Landing />}
-      {currentPage === 'portfolio' && <Portfolio />}
-      {currentPage === 'contact' && <Contact />}
+      {!isLoading && <>
+        {currentPage !== 'loading' && <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />}
+        {currentPage === 'landing' && <Landing />}
+        {currentPage === 'portfolio' && <Portfolio />}
+        {currentPage === 'contact' && <Contact />}
+      </>}
     </div>
   )
 }
