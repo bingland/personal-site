@@ -1,10 +1,14 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { createUseStyles } from 'react-jss'
 import { ThemeContext } from '../../App'
 import Button from '../../components/Button'
 import Carousel from 'nuka-carousel'
 
 import profilePic from '../../images/photosessSquare.jpg'
+import kylePic from '../../images/recs/kyle.jpg'
+import mateoPic from '../../images/recs/mateo.jpg'
+import mikeyPic from '../../images/recs/mikey.jpg'
+import seanPic from '../../images/recs/sean.jpg'
 
 interface RecommendationProps {
   title: string
@@ -16,6 +20,8 @@ interface RecommendationProps {
 
 function Contact() {
   const theme = useContext(ThemeContext)
+  const [showCopyMsg, setShowCopyMsg] = useState<boolean>(false)
+  const [showCopyErr, setShowCopyErr] = useState<boolean>(false)
   
   const useStyles = createUseStyles({
     contactContainer: {
@@ -111,6 +117,11 @@ function Contact() {
       borderRadius: 35,
       border: `1px solid ${theme.borderColor}`,
       background: 'grey',
+      overflow: 'hidden',
+    },
+    giverPicImg: {
+      width: '100%',
+      height: '100%',
     },
     giverName: {
       fontFamily: `'League Spartan', sans-serif`,
@@ -123,12 +134,34 @@ function Contact() {
   })
   const css = useStyles()
 
+  const openLinkedin = () => {
+    const url = 'https://www.linkedin.com/in/brayden-england/'
+    window.open(url, '_blank')?.focus()
+  }
+  const openGithub = () => {
+    const url = 'https://github.com/bingland'
+    window.open(url, '_blank')?.focus()
+  }
+  const copyEmail = async () => {
+    const email = 'bray.patriot@gmail.com'
+    try {
+      await navigator.clipboard.writeText(email)
+      setShowCopyMsg(true)
+      setTimeout(() => setShowCopyMsg(false), 2000)
+    } catch (e) {
+      setShowCopyErr(true)
+      setTimeout(() => setShowCopyErr(false), 2000)
+    }
+  }
+
   const Recommendation = ({title, text, giverImg, giverName, giverPosition}: RecommendationProps) => 
     <div className={css.recommendation}>
       <div className={css.recommendationTitle}>{title}</div>
       <div className={css.recommendationText}>{text}</div>
       <div className={css.recommendationGiver}>
-        <div className={css.giverPic} />
+        <div className={css.giverPic}>
+          <img className={css.giverPicImg} src={giverImg} alt="Recommender of review" />
+        </div>
         <div>
           <div className={css.giverName}>{giverName}</div>
           <div className={css.giverPosition}>{giverPosition}</div>
@@ -146,13 +179,31 @@ function Contact() {
           </div>
           <div className={css.linkArea}>
             <div className={css.linkItem}>
-              <Button text={'Connect on LinkedIn'} icon={'linkedin'} size={'lg'} color={'#0070ce'} width={'230px'} />
+              <Button 
+                text={'Connect on LinkedIn'} 
+                onClick={openLinkedin} 
+                icon={'linkedin'} 
+                size={'lg'} 
+                color={'#0070ce'} 
+                width={'230px'} />
             </div>
             <div className={css.linkItem}>
-              <Button text={'Check out my GitHub'} icon={'github'} size={'lg'} color={'#4B4B4B'} width={'230px'} />
+              <Button 
+                text={'Check out my GitHub'} 
+                onClick={openGithub} 
+                icon={'github'} 
+                size={'lg'} 
+                color={'#4B4B4B'} 
+                width={'230px'} />
             </div>
             <div className={css.linkItem}>
-              <Button text={'Send me an Email'} icon={'email'} size={'lg'} color={'#E3421E'} width={'230px'} />
+              <Button 
+                text={showCopyErr ? `Couldn't Copy Email` : !showCopyMsg ? 'Send me an Email' : 'Copied to Clipboard'} 
+                onClick={copyEmail}
+                icon={showCopyMsg ? 'success' : 'email'} 
+                size={'lg'} 
+                color={'#E3421E'} 
+                width={'230px'} />
             </div>
           </div>
         </div>
@@ -182,6 +233,7 @@ function Contact() {
                 the look and feel of our website into something more user friendly, modern and appealing. He's a hard worker who's always willing to tackle 
                 a new challenge and always delivers outstanding results.
               `}
+              giverImg={seanPic}
               giverName={'Sean Calkins'}
               giverPosition={'Mobile Application Developer at Tendo'}
               />
@@ -192,6 +244,7 @@ function Contact() {
                 HTML, CSS, etc.--to make that design a reality. His strong work ethic, attention to detail, technical skills, collaborative approach, and 
                 commitment to quality would make him a valuable asset to any organization.
               `}
+              giverImg={mateoPic}
               giverName={'Matthew Johnston'}
               giverPosition={'Software Engineer at Noke'}
               />
@@ -202,6 +255,7 @@ function Contact() {
                 and refreshingly simplistic, and he is the best at creating simple and delightful user experiences. Brayden would be an asset to any team and 
                 I highly recommend him for any frontend developer job.
               `}
+              giverImg={kylePic}
               giverName={'Kyle Johnson'}
               giverPosition={'Software Engineer at Noke'}
               />
@@ -212,6 +266,7 @@ function Contact() {
                 questions so he could start working immediately. Shortly after starting work he was already contributing, opening PRs, and even adding 
                 some awesome and advanced new features.
               `}
+              giverImg={mikeyPic}
               giverName={'Mikey Johnston'}
               giverPosition={'Frontend Developer at Angel Studios'}
               />

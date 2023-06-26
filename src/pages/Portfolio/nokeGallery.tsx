@@ -1,49 +1,60 @@
-import { useContext } from 'react'
-import { createUseStyles } from 'react-jss'
-import { ThemeContext } from '../../App'
 import Gallery from '../../components/Gallery'
 
 // cover photo
-import nokeUnlockCoverPhoto from '../../images/nokeGallery/nokeUnlockCoverPhoto.png'
+import nokeUnlockCoverPhoto from '../../images/nokeGallery/nokeUnlockCoverPhoto.jpg'
 
 // gallery photos
 import createFacilityImageScreen from '../../images/nokeGallery/createFacilityImageScreen.jpg'
-import darkToastPreviews from '../../images/nokeGallery/darkToastPreviews.png'
-import lightToastPreviews from '../../images/nokeGallery/lightToastPreviews.png'
+import darkToastPreviews from '../../images/nokeGallery/darkToastPreviews.jpg'
+import lightToastPreviews from '../../images/nokeGallery/lightToastPreviews.jpg'
 import permissionsCard from '../../images/nokeGallery/permissionsCards.jpg'
 import permissionsGraph from '../../images/nokeGallery/permissionsGraph.jpg'
 import simpleSitesPage from '../../images/nokeGallery/simpleSitesPage.jpg'
 import tableRevamp from '../../images/nokeGallery/tableRevamp.jpg'
-import brandingRevamp1 from '../../images/nokeGallery/brandingRevamp1.png'
-import brandingRevamp2 from '../../images/nokeGallery/brandingRevamp2.png'
-import helpWizard1 from '../../images/nokeGallery/helpWizard1.jpg'
-import helpWizard2 from '../../images/nokeGallery/helpWizard2.jpg'
-import iPadMockupsAdobe from '../../images/nokeGallery/iPadMockupsAdobe.png'
+import brandingRevamp1 from '../../images/nokeGallery/brandingRevamp1.jpg'
+import brandingRevamp2 from '../../images/nokeGallery/brandingRevamp2.jpg'
+import iPadMockupsAdobe from '../../images/nokeGallery/iPadMockupsAdobe.jpg'
+
+import globalNotifications1 from '../../images/nokeGallery/globalNotifications1.jpg'
+import holdOpenRedesign from '../../images/nokeGallery/holdOpenRedesign.jpg'
+import ipadScreen1 from '../../images/nokeGallery/ipadScreen1.jpg'
+import ipadScreen2 from '../../images/nokeGallery/ipadScreen2.jpg'
+import login1 from '../../images/nokeGallery/login1.jpg'
+import login2 from '../../images/nokeGallery/login2.jpg'
+import popupNotification from '../../images/nokeGallery/popupNotifications.jpg'
+import siteCompanyMessages from '../../images/nokeGallery/siteCompanyMessages.jpg'
+import siteSettings from '../../images/nokeGallery/siteSettings.jpg'
+import userCreate from '../../images/nokeGallery/userCreate.jpg'
 
 interface NokeGalleryProps {
   toggle: () => void
 }
 
 function NokeGallery({toggle}: NokeGalleryProps) {
-  const theme = useContext(ThemeContext)
-  
-  const useStyles = createUseStyles({
-    
-  })
-  const css = useStyles()
-
   const gallery = [
     {
-      image: createFacilityImageScreen,
-      description: 'Create Facility Image Screen'
+      image: tableRevamp,
+      description: 'Table Revamp'
+    },
+    {
+      image: lightToastPreviews,
+      description: 'Light Toast Previews',
     },
     {
       image: darkToastPreviews,
       description: 'Dark Toast Previews'
     },
     {
-      image: lightToastPreviews,
-      description: 'Light Toast Previews',
+      image: createFacilityImageScreen,
+      description: 'Create Facility Image Screen'
+    },
+    {
+      image: login1,
+      description: 'Login Redesign Mockup 1'
+    },
+    {
+      image: login2,
+      description: 'Login Redesign Mockup 2'
     },
     {
       image: permissionsCard,
@@ -58,10 +69,6 @@ function NokeGallery({toggle}: NokeGalleryProps) {
       description: 'Simple Sites Page',
     },
     {
-      image: tableRevamp,
-      description: 'Table Revamp'
-    },
-    {
       image: brandingRevamp1,
       description: 'Branding Revamp Mockup 1'
     },
@@ -70,17 +77,41 @@ function NokeGallery({toggle}: NokeGalleryProps) {
       description: 'Branding Revamp Mockup 2'
     },
     {
-      image: helpWizard1,
-      description: 'Help Wizard Mockup 1'
-    },
-    {
-      image: helpWizard2,
-      description: 'Help Wizard Mockup 2'
-    },
-    {
       image: iPadMockupsAdobe,
       description: 'iPad mockups for revamped Smart Entry App'
-    }
+    },
+    {
+      image: globalNotifications1,
+      description: 'Global Notifications 1'
+    },
+    {
+      image: holdOpenRedesign,
+      description: 'Hold Open Redesign'
+    },
+    {
+      image: popupNotification,
+      description: 'Popup Message'
+    },
+    {
+      image: siteCompanyMessages,
+      description: 'Site & Company Messages Page'
+    },
+    {
+      image: ipadScreen1,
+      description: 'iPad Redesign Homescreen'
+    },
+    {
+      image: ipadScreen2,
+      description: 'iPad Redesign Search Table'
+    },
+    {
+      image: siteSettings,
+      description: 'Revamped Site Settings Page'
+    },
+    {
+      image: userCreate,
+      description: 'User Create Revamp'
+    },
   ]
 
   return (
@@ -88,7 +119,14 @@ function NokeGallery({toggle}: NokeGalleryProps) {
       <Gallery 
         title={'Noke Smart Entry'}
         subtitle={'June 2021 to April 2023'} 
-        description={'Noke Smart Entry is an electronic smart lock & access control system that allows tenants to access your facility & their unit using their smart device. This is an access control system that allows tenants to access your facility & their unit using their smart device.'} 
+        description={`
+          Noke Smart Entry is an electronic smart lock & access control system that allows tenants to access your facility & their 
+          unit using their smart device. During my time at Noke, I worked on the web portal application for Smart Entry. I was heavily 
+          involved in both the coding and design process of the web portal. Using software like Figma, Adobe XD and Illustrator, I 
+          came up with many robust mockups for new features and revamps across Smart Entry. 
+          All of the pictures in this gallery that you see were all designed by me, and most of them were coded either by me or my
+          teammates. 
+        `} 
         toggle={toggle}
         gallery={gallery}
         galleryColor={'#0070ce'}

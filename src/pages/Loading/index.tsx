@@ -10,22 +10,31 @@ import unlockingUnit from '../../images/unlockingUnit.jpg'
 import unlockingUnitHand from '../../images/unlockingUnitHand.png'
 
 // cover photo
-import nokeUnlockCoverPhoto from '../../images/nokeGallery/nokeUnlockCoverPhoto.png'
+import nokeUnlockCoverPhoto from '../../images/nokeGallery/nokeUnlockCoverPhoto.jpg'
 
 // gallery photos
 import createFacilityImageScreen from '../../images/nokeGallery/createFacilityImageScreen.jpg'
-import darkToastPreviews from '../../images/nokeGallery/darkToastPreviews.png'
-import lightToastPreviews from '../../images/nokeGallery/lightToastPreviews.png'
+import darkToastPreviews from '../../images/nokeGallery/darkToastPreviews.jpg'
+import lightToastPreviews from '../../images/nokeGallery/lightToastPreviews.jpg'
 import permissionsCard from '../../images/nokeGallery/permissionsCards.jpg'
 import permissionsGraph from '../../images/nokeGallery/permissionsGraph.jpg'
 import simpleSitesPage from '../../images/nokeGallery/simpleSitesPage.jpg'
 import tableRevamp from '../../images/nokeGallery/tableRevamp.jpg'
-import brandingRevamp1 from '../../images/nokeGallery/brandingRevamp1.png'
-import brandingRevamp2 from '../../images/nokeGallery/brandingRevamp2.png'
-import helpWizard1 from '../../images/nokeGallery/helpWizard1.jpg'
-import helpWizard2 from '../../images/nokeGallery/helpWizard2.jpg'
-import iPadMockupsAdobe from '../../images/nokeGallery/iPadMockupsAdobe.png'
+import brandingRevamp1 from '../../images/nokeGallery/brandingRevamp1.jpg'
+import brandingRevamp2 from '../../images/nokeGallery/brandingRevamp2.jpg'
+import iPadMockupsAdobe from '../../images/nokeGallery/iPadMockupsAdobe.jpg'
+import globalNotifications1 from '../../images/nokeGallery/globalNotifications1.jpg'
+import holdOpenRedesign from '../../images/nokeGallery/holdOpenRedesign.jpg'
+import ipadScreen1 from '../../images/nokeGallery/ipadScreen1.jpg'
+import ipadScreen2 from '../../images/nokeGallery/ipadScreen2.jpg'
+import login1 from '../../images/nokeGallery/login1.jpg'
+import login2 from '../../images/nokeGallery/login2.jpg'
+import popupNotification from '../../images/nokeGallery/popupNotifications.jpg'
+import siteCompanyMessages from '../../images/nokeGallery/siteCompanyMessages.jpg'
+import siteSettings from '../../images/nokeGallery/siteSettings.jpg'
+import userCreate from '../../images/nokeGallery/userCreate.jpg'
 
+// could be a cleaner way to do this; make a photos file and import all? 
 const photos = [
   profilePic,
   unlockingUnit,
@@ -40,9 +49,17 @@ const photos = [
   tableRevamp,
   brandingRevamp1,
   brandingRevamp2,
-  helpWizard1,
-  helpWizard2,
   iPadMockupsAdobe,
+  globalNotifications1,
+  holdOpenRedesign,
+  ipadScreen1,
+  ipadScreen2,
+  login1,
+  login2,
+  popupNotification,
+  siteCompanyMessages,
+  siteSettings,
+  userCreate,
 ]
 
 interface LoadingProps {
@@ -70,15 +87,12 @@ function Loading ({ show }: LoadingProps) {
       display: 'flex',
       gap: 20,
       alignItems: 'center',
-      // opacity: 0.8
     },
     loadingText: {
-      // color: '#c1c1c1',
       color: theme.fontColor,
       fontFamily: `'League Spartan', sans-serif`,
       fontSize: 30,
       paddingTop: 5,
-      // marginTop: 40,
     },
     photoLoader: {
       width: 300,
