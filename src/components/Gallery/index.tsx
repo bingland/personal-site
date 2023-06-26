@@ -46,7 +46,7 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
     },
     galleryElements: {
       margin: '0 auto',
-      maxHeight: 1000,
+      maxHeight: '100%',
       width: '100%',
       height: '100%',
       display: 'grid',
@@ -61,15 +61,22 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       overflow: 'hidden',
       cursor: 'default',
       boxShadow: ' 5px 5px 16px -3px rgba(0,0,0,0.20)',
+      
     },
     infoSection: {
       padding: 20,
+      height: '100%',
+      maxHeight: '100%',
+      overflowY: 'auto',
       '@media (max-width: 1300px)': {
         display: 'none',
       }
     },
     displaySection: {
       overflowY: 'auto',
+      overflowX: 'hidden',
+      height: '100%',
+      maxHeight: 'calc(100vh - 112px)', // this is a little janky, maybe change
     },
     coverPhotoDiv: {
       width: '100%',
@@ -121,7 +128,7 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
     imageSelect: {
       display: 'grid',
       gridTemplateColumns: 'repeat(4, 1fr)',
-      gap: 20,
+      gap: 27,
       padding: 30,
       '@media (max-width: 1530px)': {
         gridTemplateColumns: 'repeat(3, 1fr)',
@@ -223,6 +230,8 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       minWidth: 250,
       minHeight: 250,
       margin: '0 auto',
+      width: 'auto',
+      height: 'auto'
     },
     fullImageElement: {
       width: '100%',
@@ -281,57 +290,60 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
             <div className={css.bottomButton} onClick={toggle}>Close</div>
           </div>
         </div>
-        <div className={classNames(css.card, css.displaySection)} onClick={e => e.stopPropagation()}>
-          {currImgIndex == null ? 
-            <div className={css.imageSelect}>
-              {gallery?.map((galleryItem, i) => 
-                <div 
-                  className={css.imageItem} 
-                  key={'galleryItem'+i} 
-                  onClick={() => clickImageItem(i)}
-                  style={{ 
-                    backgroundImage: `url(${galleryItem.image})`,
-                    backgroundSize: 'cover',
-                  }} />
-              )}
-            </div>
-            : 
-            <div className={css.imageViewerContainer}>
-              <div className={css.imageViewer} style={{...theme.animations.fadeInFast, animationDelay: '0.1s'}}>
-                <Carousel 
-                  dragging={false} 
-                  speed={1000}
-                  wrapAround={true}
-                  slideWidth={slideWidth - 4}
-                  slideIndex={currImgIndex}
-                  withoutControls={true}
-                  enableKeyboardControls={false} 
-                  >
-
-                  {gallery?.map((galleryItem, i) => 
-                    <div className={css.imageViewerContent} id={'fullImageViewerCarousel'} key={'fullViewer'+i}>
-                      <div className={css.fullImage}>
-                        <img className={css.fullImageElement} src={galleryItem.image} alt={galleryItem.description} loading={'lazy'} />
-                      </div>
-                      {/* <div className={css.imageDescription}>{galleryItem.description}</div> */}
-                    </div>)}
-                </Carousel>
-                <div className={css.controls}>
-                  <div className={classNames(css.controlBtn, isFirstSlide() && css.controlBtnDisabled)} onClick={goBackOne}>
-                    <LeftChevron color={theme.buttonFontColor} />
-                  </div>
-                  <div>Image {currImgIndex + 1}/{gallery?.length}</div>
-                  <div className={classNames(css.controlBtn, isLastSlide() && css.controlBtnDisabled)} onClick={goForwardOne}>
-                    <RightChevron color={theme.buttonFontColor} />
-                  </div>
-                </div>
-                <div className={css.backButton} onClick={unselectImageItem}>
-                  <LeftChevron color={theme.fontColor} height={'9px'} width={'7px'} />
-                  <div>Back</div>
-                </div>
-
+        <div className={classNames(css.card)} onClick={e => e.stopPropagation()}>
+          <div className={css.displaySection}>
+            {currImgIndex == null ? 
+              <div className={css.imageSelect}>
+                {gallery?.map((galleryItem, i) => 
+                  <div 
+                    className={css.imageItem} 
+                    key={'galleryItem'+i} 
+                    onClick={() => clickImageItem(i)}
+                    style={{ 
+                      backgroundImage: `url(${galleryItem.image})`,
+                      backgroundSize: 'cover',
+                    }} />
+                )}
               </div>
-            </div>}
+              : 
+              <div className={css.imageViewerContainer}>
+                <div className={css.imageViewer} style={{...theme.animations.fadeInFast, animationDelay: '0.1s'}}>
+                  <Carousel 
+                    dragging={false} 
+                    speed={1000}
+                    wrapAround={true}
+                    slideWidth={slideWidth - 4}
+                    slideIndex={currImgIndex}
+                    withoutControls={true}
+                    enableKeyboardControls={false} 
+                    >
+
+                    {gallery?.map((galleryItem, i) => 
+                      <div className={css.imageViewerContent} id={'fullImageViewerCarousel'} key={'fullViewer'+i}>
+                        <div className={css.fullImage}>
+                          <img className={css.fullImageElement} src={galleryItem.image} alt={galleryItem.description} loading={'lazy'} />
+                        </div>
+                        {/* <div className={css.imageDescription}>{galleryItem.description}</div> */}
+                      </div>)}
+                  </Carousel>
+                  <div className={css.controls}>
+                    <div className={classNames(css.controlBtn, isFirstSlide() && css.controlBtnDisabled)} onClick={goBackOne}>
+                      <LeftChevron color={theme.buttonFontColor} />
+                    </div>
+                    <div>Image {currImgIndex + 1}/{gallery?.length}</div>
+                    <div className={classNames(css.controlBtn, isLastSlide() && css.controlBtnDisabled)} onClick={goForwardOne}>
+                      <RightChevron color={theme.buttonFontColor} />
+                    </div>
+                  </div>
+                  <div className={css.backButton} onClick={unselectImageItem}>
+                    <LeftChevron color={theme.fontColor} height={'9px'} width={'7px'} />
+                    <div>Back</div>
+                  </div>
+
+                </div>
+              </div>}
+
+          </div>
         </div>
       </div>
     </div>

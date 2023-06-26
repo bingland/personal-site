@@ -96,8 +96,8 @@ function Landing() {
         <div className={css.mainTextArea}>
           <h1 className={css.mainHeader}>Hey, my name's Brayden.</h1>
           <p className={css.mainParagraph}>
-            I'm a Front End Web Developer with 2 years of professional experience in both coding and design. 
-            I have a Bachelor's Degree from Utah Valley University in Web Design & Development.
+            I'm a Front End Web Developer with 2 years of professional experience in both web development and web design. 
+            I graduated from Utah Valley University in 2021 with a Bachelor's Degree in Web Design & Development.
           </p>
         </div>
         <div className={css.photoArea}>

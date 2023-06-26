@@ -63,7 +63,6 @@ function Portfolio() {
       height: '130%',
       width: '100%',
       overflow: 'hidden',
-      // background: 'green',
       borderRadius: 16,
       bottom: 0,
     },

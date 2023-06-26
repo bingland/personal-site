@@ -28,10 +28,14 @@ function ViewController() {
   const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
-    setTimeout(() => { 
-      setIsLoading(false) 
-      setTimeout(() => setCurrentPage('landing'), 1000)
-    }, 3000)
+    if (isLoading) {
+      setTimeout(() => { 
+        setIsLoading(false) 
+        setTimeout(() => setCurrentPage('landing'), 1000)
+      }, 3000)
+    } else {
+      setCurrentPage('landing')
+    }
   }, [])
 
   return (

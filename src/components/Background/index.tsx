@@ -47,6 +47,8 @@ function Background ({ currentPage }: BackgroundProps) {
       style={{
         // background: `linear-gradient(${calcGradientAngle()}deg, rgba(189,208,255,1) 0%, rgba(193,224,255,1) 49%, rgba(222,255,249,1) 100%)`,
         // background: `linear-gradient(${calcGradientAngle()}deg, rgba(173,255,243,1) 0%, rgba(253,255,176,1) 100%)`,
+        // background: `linear-gradient(${calcGradientAngle()}deg, rgba(125,150,255,1) 0%, rgba(148,255,175,1) 100%)`,
+        // background: `linear-gradient(${calcGradientAngle()}deg, rgba(139,161,255,1) 0%, rgba(134,255,164,1) 100%)`,
         // background: `linear-gradient(${calcGradientAngle()}deg, ${hexToRGBA('#0070ce', 0.72)} 0%, ${hexToRGBA('#6700ce', 0.19)} 100%)`,
         // background: `linear-gradient(${calcGradientAngle()}deg, rgba(208,176,255,1) 0%, rgba(173,255,243,1) 100%)`,
         background: `linear-gradient(${calcGradientAngle()}deg, #b0b2ff 10%, #adfff3 100%)`,
