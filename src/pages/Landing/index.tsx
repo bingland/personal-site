@@ -28,7 +28,8 @@ function Landing() {
       height: '100%',
       maxWidth: 1200,
       display: 'grid',
-      gridTemplateColumns: '1fr 450px',
+      gridTemplateColumns: '1fr 320px',
+      gap: 100,
       alignItems: 'center',
       '@media (max-width: 1025px)': {
         gridTemplateColumns: '1fr',
@@ -75,11 +76,12 @@ function Landing() {
       backgroundColor: '#f2f2f2',
       backgroundImage: `url(${profilePic})`,
       backgroundSize: 'cover',
-      border: `1px solid black`,
-      borderRadius: 25, 
+      border: `1px solid ${theme.borderColor}`,
+      borderRadius: 45, 
       width: 320,
       height: 320,
       margin: '0 auto',
+      boxShadow: theme.boxShadow,
       '@media (max-width: 500px)': {
         width: 240,
         height: 240,
@@ -95,7 +97,7 @@ function Landing() {
           <h1 className={css.mainHeader}>Hey, my name's Brayden.</h1>
           <p className={css.mainParagraph}>
             I'm a Front End Web Developer with 2 years of professional experience in both coding and design. 
-            I got my Bachelor's Degree from Utah Valley University in Web Design & Development.
+            I have a Bachelor's Degree from Utah Valley University in Web Design & Development.
           </p>
         </div>
         <div className={css.photoArea}>

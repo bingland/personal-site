@@ -21,7 +21,7 @@ function LogoBg ({currentPage}: CodeBGProps) {
       display: 'grid',
       placeItems: 'center',
       transform: 'rotate(140deg)',
-      opacity: 0.03
+      opacity: 0.04
     },
   })
   const css = useStyles()

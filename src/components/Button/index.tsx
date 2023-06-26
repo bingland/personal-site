@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { createUseStyles } from 'react-jss'
 import { ThemeContext } from '../../App'
-import { GithubIcon, ViewSiteIcon, GalleryIcon, LinkedInIcon, EmailIcon } from '../../utilities/icons'
+import { GithubIcon, ViewSiteIcon, GalleryIcon, LinkedInIcon, EmailIcon, Checkmark } from '../../utilities/icons'
 // import classNames from 'classnames'
 
 interface ProjectBoxProps {
@@ -10,7 +10,7 @@ interface ProjectBoxProps {
   color?: string
   size?: 'xl' | 'lg' | 'md' | 'sm'
   href?: string
-  icon?: 'github' | 'viewsite' | 'gallery' | 'linkedin' | 'email'
+  icon?: 'github' | 'viewsite' | 'gallery' | 'linkedin' | 'email' | 'success'
   onClick?: () => void
 }
 
@@ -21,7 +21,7 @@ function Button({color, text, width, size = 'md', icon, href, onClick, ...props}
     buttonContainer: {
       border: `1px solid ${theme.borderColor}`,
       borderRadius: 50,
-      height: size === 'lg' ? 37 : size === 'md' ? 35 : size === 'sm' ? 30 : 35,
+      height: size === 'lg' ? 37 : size === 'md' ? 37 : size === 'sm' ? 30 : 35,
       display: 'flex',
       gap: 7,
       alignItems: 'center',
@@ -74,6 +74,7 @@ function Button({color, text, width, size = 'md', icon, href, onClick, ...props}
         {icon === 'gallery' && <GalleryIcon color={color || theme.themeColor} width={getIconSize()} height={getIconSize()} />}
         {icon === 'linkedin' && <LinkedInIcon color={color || theme.themeColor} width={getIconSize()} height={getIconSize()} />}
         {icon === 'email' && <EmailIcon color={color || theme.themeColor} width={getIconSize()} height={getIconSize()} />}
+        {icon === 'success' && <Checkmark color={color || theme.themeColor} width={getIconSize()} height={getIconSize()} />}
       </div>
       <div className={css.text}>{text}</div>
     </button>

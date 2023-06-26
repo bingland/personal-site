@@ -57,7 +57,7 @@ function Header(props: HeaderProps) {
     },
     logoText: {
       fontSize: 25,
-      color: theme.themeColor,
+      color: theme.fontColor,
       '@media (max-width: 575px)': {
         display: 'none',
       }

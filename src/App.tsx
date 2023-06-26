@@ -69,6 +69,7 @@ function App() {
     backgroundColor: 'rgba(255,255,255,0.6)',
     boxShadow: ' 5px 5px 16px -3px rgba(0,0,0,0.15)',
     buttonFontColor: '#fff',
+    // fontColor: '#1C1C1C',
     fontColor: '#000',
     borderColor: 'rgba(0,0,0,0.55)',
     themeColor,

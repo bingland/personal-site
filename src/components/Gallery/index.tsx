@@ -149,11 +149,14 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
     },
 
     controls: {
+      display: 'flex',
       position: 'absolute',
       bottom: 50,
+      right: 0,
+      left: 0,
+      margin: '0 auto',
       width: 300,
       padding: '10px',
-      display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
       border: `1px solid ${theme.borderColor}`,

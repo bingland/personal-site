@@ -63,7 +63,7 @@ function CodeBG () {
       <div className={css.codeText} style={{ 
         left: defaultPercent, 
         top: defaultPercent,
-        opacity: 0.015,
+        opacity: 0.022,
       }}>
         {codeText}
       </div>

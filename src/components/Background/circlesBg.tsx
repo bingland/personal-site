@@ -51,7 +51,7 @@ function LogoBg ({currentPage}: CodeBGProps) {
       borderRadius: '50%',
       background: theme.themeColor,
       position: 'absolute',
-      opacity: 0.025
+      opacity: 0.045
     }
   })
   const css = useStyles()
