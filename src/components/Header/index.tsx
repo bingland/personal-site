@@ -1,6 +1,7 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { createUseStyles } from 'react-jss'
 import { ThemeContext } from '../../App'
+import NokeGallery from '../../pages/Portfolio/nokeGallery'
 import classNames from 'classnames'
 
 import { MainLogo } from '../../utilities/icons'
@@ -125,6 +126,9 @@ function Header(props: HeaderProps) {
   })
   const css = useStyles()
 
+  const [nokeGallery, setNokeGallery] = useState(false)
+  const toggleNokeGallery = () => setNokeGallery(!nokeGallery)
+
   const clickItem = (page: PageTypes) => {
     if (page === props.currentPage) return
     // theme.setThemeColor('green')
@@ -134,7 +138,7 @@ function Header(props: HeaderProps) {
     return page === props.currentPage
   }
 
-  return (
+  return (<>
     <nav className={css.headerContainer}>
       <div className={css.divider}>
         <div onClick={() => clickItem('landing')} style={{...theme.animations.fadeDown, animationDelay: '0.6s'}} className={classNames(css.flex, css.logoContainer)}>
@@ -147,6 +151,9 @@ function Header(props: HeaderProps) {
           <div onClick={() => clickItem('portfolio')} style={{...theme.animations.fadeDown, animationDelay: '0.8s'}} className={classNames(css.item, css.pageColor)}>
             <div className={classNames(isSelected('portfolio') ? css.selected : css.unselected)}>Portfolio</div>
           </div>
+          {/* {theme.width > 870 && <div onClick={toggleNokeGallery} style={{...theme.animations.fadeDown, animationDelay: '1s'}} className={classNames(css.item, css.pageColor)}>
+            <div className={classNames(css.unselected)}>Gallery</div>
+          </div>} */}
           {/* will uncomment later */}
           {/* <div onClick={() => clickItem('experience')} className={classNames(css.item, css.pageColor)}>Experience</div> */}
           <div onClick={() => clickItem('contact')} style={{...theme.animations.fadeDown, animationDelay: '1s'}} className={classNames(css.item, css.pageColor)}>
@@ -155,7 +162,8 @@ function Header(props: HeaderProps) {
         </div>
       </div>
     </nav>
-  )
+    {/* {nokeGallery && theme.width > 870 && <NokeGallery toggle={toggleNokeGallery} />} */}
+  </>)
 }
 
 export default Header
