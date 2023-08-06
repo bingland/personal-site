@@ -80,8 +80,8 @@ function GalleryImageViewer({ gallery, galleryColor = 'black', clickedImg }: Gal
     },
     controlBtn: {
       backgroundColor: galleryColor,
-      width: 25,
-      height: 25,
+      width: 24,
+      height: 24,
       border: `1px solid ${theme.borderColor}`,
       borderRadius: 40,
       cursor: 'pointer',
@@ -133,11 +133,11 @@ function GalleryImageViewer({ gallery, galleryColor = 'black', clickedImg }: Gal
         </Carousel>
         <div className={css.controls}>
           <div className={classNames(css.controlBtn, isFirstSlide() && css.controlBtnDisabled)} onClick={goBackOne}>
-            <LeftChevron color={theme.buttonFontColor} />
+            <LeftChevron color={theme.buttonFontColor} width={'12px'} height={'10px'} />
           </div>
           <div>Image {currImgIndex + 1}/{gallery?.length}</div>
           <div className={classNames(css.controlBtn, isLastSlide() && css.controlBtnDisabled)} onClick={goForwardOne}>
-            <RightChevron color={theme.buttonFontColor} />
+            <RightChevron color={theme.buttonFontColor} width={'10px'} height={'10px'} />
           </div>
         </div>
       </div>

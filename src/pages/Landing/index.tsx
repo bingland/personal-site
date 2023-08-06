@@ -74,18 +74,20 @@ function Landing() {
     },
 
     photoArea: {
+      width: 355,
+      height: 400,
+      marginTop: 60,
+      position: 'relative',
       '@media (max-width: 1025px)': {
         margin: '0 auto',
+        marginTop: 60,
         order: 1,
       },
       '@media (max-width: 450px)': {
+        marginTop: 0,
         width: 260,
         height: 293,
       },
-      width: 355,
-      height: 400,
-      marginTop: 100,
-      position: 'relative',
     },
 
     hexPhoto: {
@@ -97,7 +99,7 @@ function Landing() {
       bottom: 0,
       // controls color
       filter: 'invert(31%) sepia(97%) saturate(861%) hue-rotate(191deg) ',
-      opacity: 0.38,
+      opacity: 0.30,
     },
     pfpPhoto: {
       backgroundImage: `url(${pfpOutline})`,
