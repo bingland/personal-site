@@ -2,7 +2,8 @@ import { useContext } from 'react'
 import { createUseStyles } from 'react-jss'
 import { ThemeContext } from '../../App'
 
-import profilePic from '../../images/photosessSquare.jpg'
+import pfpOutline from '../../images/pfpOutline.png'
+import hex from '../../images/hex.png'
 
 function Landing() {
   const theme = useContext(ThemeContext)
@@ -28,7 +29,7 @@ function Landing() {
       height: '100%',
       maxWidth: 1200,
       display: 'grid',
-      gridTemplateColumns: '1fr 320px',
+      gridTemplateColumns: '1fr 360px',
       gap: 100,
       alignItems: 'center',
       '@media (max-width: 1025px)': {
@@ -38,11 +39,16 @@ function Landing() {
         gap: 50,
         paddingTop: 100,
         textAlign: 'center',
+      },
+      '@media (max-width: 450px)': {
+        paddingTop: 120,
       }
     },
 
     mainTextArea: {
-      
+      '@media (max-width: 1025px)': {
+        order: 2,
+      }
     },
     mainHeader: {
       fontSize: 40,
@@ -58,7 +64,7 @@ function Landing() {
       },
     },
     mainParagraph: {
-      fontSize: 25,
+      fontSize: 24,
       '@media (max-width: 580px)': {
         fontSize: 20,
       },
@@ -69,24 +75,41 @@ function Landing() {
 
     photoArea: {
       '@media (max-width: 1025px)': {
-        width: '100%',
-      }
-    },
-    photo: {
-      backgroundColor: '#f2f2f2',
-      backgroundImage: `url(${profilePic})`,
-      backgroundSize: 'cover',
-      border: `1px solid ${theme.borderColor}`,
-      borderRadius: 45, 
-      width: 320,
-      height: 320,
-      margin: '0 auto',
-      boxShadow: theme.boxShadow,
-      '@media (max-width: 500px)': {
-        width: 240,
-        height: 240,
+        margin: '0 auto',
+        order: 1,
       },
+      '@media (max-width: 450px)': {
+        width: 260,
+        height: 293,
+      },
+      width: 355,
+      height: 400,
+      marginTop: 100,
+      position: 'relative',
     },
+
+    hexPhoto: {
+      backgroundImage: `url(${hex})`,
+      backgroundSize: 'cover',
+      width: '100%',
+      height: '100%',
+      position: 'absolute',
+      bottom: 0,
+      // controls color
+      filter: 'invert(31%) sepia(97%) saturate(861%) hue-rotate(191deg) ',
+      opacity: 0.38,
+    },
+    pfpPhoto: {
+      backgroundImage: `url(${pfpOutline})`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      width: '78%',
+      height: '111.5%',
+      bottom: 0,
+      position: 'absolute',
+      left: '50%',
+      transform: 'translateX(-50%)',
+    }
   })
   const css = useStyles()
 
@@ -96,12 +119,13 @@ function Landing() {
         <div className={css.mainTextArea}>
           <h1 className={css.mainHeader}>Hey, my name's Brayden.</h1>
           <p className={css.mainParagraph}>
-            I'm a Front End Web Developer with 2 years of professional experience in both web development and web design. 
+            I'm a Web Developer with 2 years of professional experience in both front end web development and web design. 
             I graduated from Utah Valley University in 2021 with a Bachelor's Degree in Web Design & Development.
           </p>
         </div>
         <div className={css.photoArea}>
-          <div className={css.photo} />
+          <div className={css.hexPhoto} />
+          <div className={css.pfpPhoto} />
         </div>
       </div>
     </div>
