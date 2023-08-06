@@ -111,7 +111,7 @@ function Loading ({ show }: LoadingProps) {
       height: 1
     },
     interText: {
-      fontFamily: `'Inter', sans-serif`,
+      fontFamily: `'Raleway', sans-serif`,
       fontSize: 8,
       opacity: 0,
     },

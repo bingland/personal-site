@@ -116,7 +116,7 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
     bottomButton: {
       color: theme.buttonFontColor,
       fontWeight: 'bold',
-      fontFamily: `'Inter', sans-serif`,
+      fontFamily: `'Raleway', sans-serif`,
       background: theme.themeColor,
       boxShadow: theme.boxShadow,
       border: `1px solid ${theme.borderColor}`,
@@ -151,6 +151,7 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       borderRadius: 15,
       background: 'rgba(255,255,255,0.5)',
       boxShadow: theme.boxShadow,
+      height: 28,
       padding: '5px 10px',
       position: 'absolute',
       top: 30,
@@ -159,6 +160,9 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       gap: 8,
       opacity: 0.7,
       cursor: 'pointer',
+    },
+    chevronContainer: {
+      marginTop: 1,
     },
 
     imageViewer: {
@@ -212,7 +216,9 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
                 clickedImg={clickedImg} 
                 />}
             {clickedImg !== null && <div className={css.backButton} onClick={unselectImageItem}>
-              <LeftChevron color={theme.fontColor} height={'9px'} width={'7px'} />
+              <div className={css.chevronContainer}>
+                <LeftChevron color={theme.fontColor} height={'9px'} width={'7px'} />
+              </div>
               <div>Back</div>
             </div>}
           </div>
