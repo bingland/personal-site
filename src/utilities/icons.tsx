@@ -3,6 +3,7 @@ interface IconProps {
   height?: string,
   color?: string,
   className?: string
+  style?: React.CSSProperties
 }
 
 export const GithubIcon = (props: IconProps) => (

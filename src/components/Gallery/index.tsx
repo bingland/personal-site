@@ -59,7 +59,7 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       position: 'relative',
       borderRadius: 20,
       border: `1px solid ${theme.borderColor}`,
-      background: 'rgba(255,255,255,0.94)',
+      background: 'rgba(255,255,255,0.96)',
       overflow: 'hidden',
       cursor: 'default',
       boxShadow: ' 5px 5px 16px -3px rgba(0,0,0,0.20)',
@@ -144,52 +144,6 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
         gridTemplateColumns: 'repeat(3, 1fr)',
       }
     },
-    imageItem: {
-      height: 130,
-      width: '100%',
-      border: `1px solid ${theme.borderColor}`,
-      borderRadius: 5,
-      overflow: 'none',
-      background: theme.backgroundColor,
-      cursor: 'pointer',
-      boxShadow: ' 5px 5px 16px -3px rgba(0,0,0,0.15)',
-      transition: 'all 0.2s ease-in-out',
-      '&:hover': {
-        transform: 'scale(1.04)',
-      }
-    },
-
-    controls: {
-      display: 'flex',
-      position: 'absolute',
-      bottom: 50,
-      right: 0,
-      left: 0,
-      margin: '0 auto',
-      width: 300,
-      padding: '10px',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      border: `1px solid ${theme.borderColor}`,
-      borderRadius: 50,
-      background: 'rgba(255,255,255,0.5)',
-      boxShadow: theme.boxShadow,
-      userSelect: 'none',
-    },
-    controlBtn: {
-      backgroundColor: galleryColor,
-      width: 25,
-      height: 25,
-      border: `1px solid ${theme.borderColor}`,
-      borderRadius: 40,
-      cursor: 'pointer',
-      display: 'grid',
-      placeItems: 'center',
-    },
-    controlBtnDisabled: {
-      opacity: 0.5,
-
-    },
     backButton: {
       display: 'flex',
       alignItems: 'center',
@@ -207,13 +161,6 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       cursor: 'pointer',
     },
 
-    imageViewerContainer: {
-      background: 'linear-gradient(31deg, rgba(198,229,255,1) 0%, rgba(235,246,255,1) 100%)',
-      height: '100%',
-      width: '100%',
-      // display: 'grid',
-      // placeItems: 'center',
-    },
     imageViewer: {
       height: '100%',
       width: '100%',
@@ -221,35 +168,6 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       placeItems: 'center',
       paddingBottom: 65,
     },
-    imageViewerContent: {
-      display: 'grid', 
-      placeItems: 'center',
-      alignContent: 'center',
-      height: '100%',
-      paddingBottom: 15, // ! remove this if the descriptions are put back
-    },
-    fullImage: {
-      maxWidth: 600,
-      maxHeight: 600,
-      minWidth: 250,
-      minHeight: 250,
-      margin: '0 auto',
-      width: 'auto',
-      height: 'auto'
-    },
-    fullImageElement: {
-      width: '100%',
-      maxWidth: '100%',
-      maxHeight: '100%',
-      // height: '100%',
-      borderRadius: 5,
-      // border: `1px solid ${theme.borderColor}`,
-      boxShadow: ' 5px 5px 16px -3px rgba(0,0,0,0.15)'
-    },
-    imageDescription: {
-      textAlign: 'center',
-      marginTop: 15,
-    }
   })
   const css = useStyles()
 

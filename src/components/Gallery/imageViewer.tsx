@@ -90,23 +90,6 @@ function GalleryImageViewer({ gallery, galleryColor = 'black', clickedImg }: Gal
     },
     controlBtnDisabled: {
       opacity: 0.5,
-
-    },
-    backButton: {
-      display: 'flex',
-      alignItems: 'center',
-      border: `1px solid ${theme.borderColor}`,
-      borderRadius: 15,
-      background: 'rgba(255,255,255,0.5)',
-      boxShadow: theme.boxShadow,
-      padding: '5px 10px',
-      position: 'absolute',
-      top: 30,
-      left: 30,
-      fontSize: 13,
-      gap: 8,
-      opacity: 0.7,
-      cursor: 'pointer',
     },
   })
   const css = useStyles()
