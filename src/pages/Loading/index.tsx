@@ -5,6 +5,7 @@ import { ThemeContext } from '../../App'
 import { LoadingOval } from '../../utilities/icons'
 
 // main photos 
+import profilePic from '../../images/photosessSquare.jpg'
 import pfpOutline from '../../images/pfpOutline.png'
 import hex from '../../images/hex.png'
 import unlockingUnit from '../../images/unlockingUnit.jpg'
@@ -37,6 +38,7 @@ import userCreate from '../../images/nokeGallery/userCreate.jpg'
 
 // could be a cleaner way to do this; make a photos file and import all? 
 const photos = [
+  profilePic,
   pfpOutline,
   hex,
   unlockingUnit,
