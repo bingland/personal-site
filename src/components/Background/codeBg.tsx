@@ -1,4 +1,4 @@
-import { useState, useContext } from 'react'
+import { useContext } from 'react'
 import { createUseStyles } from 'react-jss'
 
 import { ThemeContext } from '../../App'
@@ -63,7 +63,7 @@ function CodeBG () {
       <div className={css.codeText} style={{ 
         left: defaultPercent, 
         top: defaultPercent,
-        opacity: 0.022,
+        opacity: 0.026,
       }}>
         {codeText}
       </div>

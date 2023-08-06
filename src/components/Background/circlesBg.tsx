@@ -16,15 +16,15 @@ function LogoBg ({currentPage}: CodeBGProps) {
     '@keyframes bobbing': {
       '0%': {
         transform: 'translate(0,0)',
-        opacity: 0.025
+        opacity: 0.035
       },
       '50%': {
         transform: 'translate(9px, -30px)',
-        opacity: 0.035
+        opacity: 0.05
       },
       '100%': {
         transform: 'translate(0,0)',
-        opacity: 0.025
+        opacity: 0.035
       },
     },
     "@keyframes pulsate": {
@@ -51,7 +51,7 @@ function LogoBg ({currentPage}: CodeBGProps) {
       borderRadius: '50%',
       background: theme.themeColor,
       position: 'absolute',
-      opacity: 0.045
+      opacity: 0.035
     }
   })
   const css = useStyles()
