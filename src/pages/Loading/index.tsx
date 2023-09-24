@@ -11,10 +11,11 @@ import hex from '../../images/hex.png'
 import unlockingUnit from '../../images/unlockingUnit.jpg'
 import unlockingUnitHand from '../../images/unlockingUnitHand.png'
 
-// cover photo
+// cover photos
 import nokeUnlockCoverPhoto from '../../images/nokeGallery/nokeUnlockCoverPhoto.jpg'
+import freelanceCoverPhoto from '../../images/freelanceGallery/freelanceCoverPhoto.jpg'
 
-// gallery photos
+// noke photos
 import createFacilityImageScreen from '../../images/nokeGallery/createFacilityImageScreen.jpg'
 import darkToastPreviews from '../../images/nokeGallery/darkToastPreviews.jpg'
 import lightToastPreviews from '../../images/nokeGallery/lightToastPreviews.jpg'
@@ -35,6 +36,16 @@ import popupNotification from '../../images/nokeGallery/popupNotifications.jpg'
 import siteCompanyMessages from '../../images/nokeGallery/siteCompanyMessages.jpg'
 import siteSettings from '../../images/nokeGallery/siteSettings.jpg'
 import userCreate from '../../images/nokeGallery/userCreate.jpg'
+
+// freelance photos
+import BRWgenerated1 from '../../images/freelanceGallery/BRWgenerated1.jpg'
+import BRWgenerated2 from '../../images/freelanceGallery/BRWgenerated2.jpg'
+import BRWWizardLanding1 from '../../images/freelanceGallery/BRWWizardLanding1.jpg'
+import BRWWizardLanding2 from '../../images/freelanceGallery/BRWWizardLanding2.jpg'
+import BRWWizardStart from '../../images/freelanceGallery/BRWWizardStart.jpg'
+import RattlersCover from '../../images/freelanceGallery/RattlersCover.jpg'
+import RattlersRoster from '../../images/freelanceGallery/RattlersRoster.jpg'
+import YINadmin from '../../images/freelanceGallery/YINadmin.jpg'
 
 // could be a cleaner way to do this; make a photos file and import all? 
 const photos = [
@@ -64,6 +75,15 @@ const photos = [
   siteCompanyMessages,
   siteSettings,
   userCreate,
+  freelanceCoverPhoto,
+  BRWWizardLanding1,
+  BRWWizardLanding2,
+  BRWWizardStart,
+  BRWgenerated1,
+  BRWgenerated2,
+  RattlersCover,
+  RattlersRoster,
+  YINadmin
 ]
 
 interface LoadingProps {
@@ -112,12 +132,17 @@ function Loading ({ show }: LoadingProps) {
       width: 1,
       height: 1
     },
-    interText: {
-      fontFamily: `'Open Sans', sans-serif`, // heading
+    headingText: {
+      fontFamily: `'League Spartan', sans-serif`, // heading
       fontSize: 8,
       opacity: 0,
     },
-    monoText: {
+    bodyText: {
+      fontFamily: `'Open Sans', sans-serif`, // body
+      fontSize: 8,
+      opacity: 0,
+    },
+    codeText: {
       fontFamily: `'Roboto Mono', monospace`,
       fontSize: 8,
       opacity: 0,
@@ -134,8 +159,12 @@ function Loading ({ show }: LoadingProps) {
         </div>
       </div>
       <div className={css.photoLoader}>
-        <div className={css.interText}>Brayden England</div>
-        <div className={css.monoText}>Web Developer</div>
+        <div className={css.headingText}>Brayden England</div>
+        <div className={css.codeText}>Web Developer</div>
+        <div className={css.bodyText}>
+          I'm a Web Developer with 2 years of professional experience in both front end web development and web design. 
+          I graduated from Utah Valley University in 2021 with a Bachelor's Degree in Web Design & Development.
+        </div>
         {photos.map((p, i) => <img src={p} className={css.hiddenPhoto} key={i+'loadingPhoto'} alt={'pre loading '+i} />)}
       </div>
     </div>
