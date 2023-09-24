@@ -3,13 +3,16 @@ import { createUseStyles } from 'react-jss'
 import { ThemeContext } from '../../App'
 import ProjectBox from '../../components/ProjectBox'
 import NokeGallery from './nokeGallery'
+import FreelanceGallery from './freelanceGallery'
 
 import unlockingUnit from '../../images/unlockingUnit.jpg'
 import unlockingUnitHand from '../../images/unlockingUnitHand.png'
 
 function Portfolio() {
   const [nokeGallery, setNokeGallery] = useState(false)
+  const [freelanceGallery, setFreelanceGallery] = useState(false)
   const toggleNokeGallery = () => setNokeGallery(!nokeGallery)
+  const toggleFreelanceGallery = () => setFreelanceGallery(!freelanceGallery)
   const theme = useContext(ThemeContext)
   
   const useStyles = createUseStyles({
@@ -85,6 +88,7 @@ function Portfolio() {
     <div className={css.projectsContainer}>
       {/* galleries */}
       {nokeGallery && theme.width > 870 && <NokeGallery toggle={toggleNokeGallery} />}
+      {freelanceGallery && theme.width > 870 && <FreelanceGallery toggle={toggleFreelanceGallery} />}
       <div className={css.projectsGrid}>
         <ProjectBox 
           title={'Noke Smart Entry'} 
@@ -98,18 +102,21 @@ function Portfolio() {
           style={{...theme.animations.fadeDownShort, animationDelay: '0.2s'}}
           extraArea={nokeExtraArea()} />
         <ProjectBox 
+          title={'Freelance'} 
+          desc={'Starting from August 2023, I\'ve been doing freelance UX/UI Design and Web Development. I\'ve designed several large applications and coded many of my designs as well.'} 
+          highlightColor={'#73bb44'}
+          gallery={theme.width > 870}
+          showGallery={nokeGallery}
+          toggleGallery={toggleFreelanceGallery}
+          style={{...theme.animations.fadeDownShort, animationDelay: '0.3s'}}
+          extraArea={nokeExtraArea()} />
+        <ProjectBox 
           title={'Color Accessibility App'} 
           desc={'React App that calculates the accessibility of a color scheme according to different types of colorblindness.'} 
           highlightColor={'#9491E9'}
-          style={{...theme.animations.fadeDownShort, animationDelay: '0.3s'}}
+          style={{...theme.animations.fadeDownShort, animationDelay: '0.4s'}}
           site={'https://prismcolor.netlify.app/'} 
           repo={'https://github.com/bingland/color-accessibility-app'} />
-        <ProjectBox 
-          title={'Translate to JSON'} 
-          desc={'Translate a JSON object into different languages. Created with Svelte and NodeJS, uses a Puppeteer based backend for data scraping to bypass an API key. '} 
-          highlightColor={'#2C6A72'}
-          style={{...theme.animations.fadeDownShort, animationDelay: '0.4s'}}
-          repo={'https://github.com/bingland/translateToJSON'} />
         <ProjectBox 
           title={'React Trivia'} 
           desc={'Trivia Game made with React and the Open Trivia DB API. Assignment for DGM 3790 at Utah Valley University.'} 
