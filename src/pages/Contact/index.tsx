@@ -97,7 +97,7 @@ function Contact() {
       padding: 50,
     },
     recommendationTitle: {
-      fontFamily: `'League Spartan', sans-serif`,
+      fontFamily: `'League Spartan', sans-serif`, // heading
       fontSize: 24,
       fontWeight: 'bold',
     },
@@ -124,7 +124,7 @@ function Contact() {
       height: '100%',
     },
     giverName: {
-      fontFamily: `'League Spartan', sans-serif`,
+      fontFamily: `'League Spartan', sans-serif`, // heading
       fontSize: 20,
       fontWeight: 'bold',
     },

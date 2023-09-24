@@ -55,7 +55,7 @@ function Landing() {
       fontWeight: 'bold',
       color: theme.themeColor,
       marginBottom: 15,
-      fontFamily: `'League Spartan', sans-serif`,
+      fontFamily: `'League Spartan', sans-serif`, // heading
       '@media (max-width: 580px)': {
         fontSize: 30,
       },

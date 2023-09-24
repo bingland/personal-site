@@ -4,6 +4,7 @@ import { ThemeContext } from '../../App'
 import Carousel from 'nuka-carousel'
 import { LeftChevron, RightChevron } from '../../utilities/icons'
 import classNames from 'classnames'
+import { hexToRGBA } from '../../utilities'
 
 interface GalleryImageViewerProps {
   gallery: any
@@ -18,7 +19,8 @@ function GalleryImageViewer({ gallery, galleryColor = 'black', clickedImg }: Gal
 
   const useStyles = createUseStyles({
     imageViewerContainer: {
-      background: 'linear-gradient(31deg, rgba(198,229,255,1) 0%, rgba(235,246,255,1) 100%)',
+      // background: 'linear-gradient(31deg, rgba(198,229,255,1) 0%, rgba(235,246,255,1) 100%)', 
+      background: `linear-gradient(331deg, ${hexToRGBA(galleryColor, 0.07)} 0%, ${hexToRGBA(galleryColor, 0.01)} 100%)`, 
       height: '100%',
       width: '100%',
       // display: 'grid',

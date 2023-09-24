@@ -59,7 +59,7 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       position: 'relative',
       borderRadius: 20,
       border: `1px solid ${theme.borderColor}`,
-      background: 'rgba(255,255,255,0.96)',
+      background: 'rgba(255,255,255,1)',
       overflow: 'hidden',
       cursor: 'default',
       boxShadow: ' 5px 5px 16px -3px rgba(0,0,0,0.20)',
@@ -85,12 +85,13 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       height: 160,
       backgroundImage: `url(${coverPhoto})`,
       backgroundSize: 'cover',
+      backgroundPosition: 'center',
       borderRadius: 15,
       marginBottom: 20,
       border: `1px solid ${theme.borderColor}`,
     },
     infoTitle: {
-      fontFamily: `'League Spartan', sans-serif`,
+      fontFamily: `'League Spartan', sans-serif`, // heading
       fontSize: 26,
       fontWeight: 'bold',
       color: galleryColor,
@@ -109,15 +110,15 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       left: 0,
       width: '100%',
       padding: 20,
-      display: 'grid',
+      display: 'flex',
       gridTemplateColumns: '1fr 1fr',
       gap: 20,
     },
     bottomButton: {
       color: theme.buttonFontColor,
       fontWeight: 'bold',
-      fontFamily: `'Open Sans', sans-serif`, // heading
-      background: theme.themeColor,
+      fontFamily: `'Open Sans', sans-serif`, // body
+      background: galleryColor,
       boxShadow: theme.boxShadow,
       border: `1px solid ${theme.borderColor}`,
       borderRadius: 50,
@@ -144,7 +145,7 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
         gridTemplateColumns: 'repeat(3, 1fr)',
       }
     },
-    backButton: {
+    backButtonContainer: {
       display: 'flex',
       alignItems: 'center',
       border: `1px solid ${theme.borderColor}`,
@@ -152,7 +153,8 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       background: 'rgba(255,255,255,0.5)',
       boxShadow: theme.boxShadow,
       height: 28,
-      padding: '5px 10px',
+      padding: '5px 12px',
+      paddingBottom: 7,
       position: 'absolute',
       top: 30,
       left: 30,
@@ -160,6 +162,9 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       gap: 8,
       opacity: 0.7,
       cursor: 'pointer',
+    },
+    backText: {
+
     },
     chevronContainer: {
       marginTop: 1,
@@ -198,7 +203,7 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
           <div className={css.infoSubtitle}>{subtitle}</div>
           <div className={css.infoDescription}>{description}</div>
           <div className={css.bottomButtons}>
-            <div className={css.bottomButton} onClick={openMoreInfo}>More Info</div>
+            {moreInfo && <div className={css.bottomButton} onClick={openMoreInfo}>More Info</div>}
             <div className={css.bottomButton} onClick={toggle}>Close</div>
           </div>
         </div>
@@ -215,11 +220,11 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
                 galleryColor={galleryColor}
                 clickedImg={clickedImg} 
                 />}
-            {clickedImg !== null && <div className={css.backButton} onClick={unselectImageItem}>
+            {clickedImg !== null && <div className={css.backButtonContainer} onClick={unselectImageItem}>
               <div className={css.chevronContainer}>
                 <LeftChevron color={theme.fontColor} height={'9px'} width={'7px'} />
               </div>
-              <div>Back</div>
+              <div className={css.backText}>Back</div>
             </div>}
           </div>
         </div>

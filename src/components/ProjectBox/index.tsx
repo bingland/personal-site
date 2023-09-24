@@ -40,7 +40,7 @@ function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, sho
     title: {
       fontSize: 25,
       fontWeight: 'bold',
-      fontFamily: `'League Spartan', sans-serif`,
+      fontFamily: `'League Spartan', sans-serif`, // heading
       '@media (max-width: 500px)': {
         fontSize: 23,
       }

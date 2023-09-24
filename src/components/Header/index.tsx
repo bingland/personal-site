@@ -20,7 +20,7 @@ function Header(props: HeaderProps) {
       position: 'absolute',
       top: 0,
       zIndex: 5,
-      fontFamily: `'League Spartan', sans-serif`,
+      fontFamily: `'League Spartan', sans-serif`, // heading
       '@media (max-width: 1300px)': {
         padding: '0 50px',
       },
