@@ -116,7 +116,7 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
     bottomButton: {
       color: theme.buttonFontColor,
       fontWeight: 'bold',
-      fontFamily: `'Raleway', sans-serif`,
+      fontFamily: `'Open Sans', sans-serif`, // heading
       background: theme.themeColor,
       boxShadow: theme.boxShadow,
       border: `1px solid ${theme.borderColor}`,

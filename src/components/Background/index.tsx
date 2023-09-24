@@ -58,7 +58,7 @@ function Background ({ currentPage }: BackgroundProps) {
       }}>
       {currentPage === 'portfolio' && <CodeBG />}
       {currentPage === 'contact' && <LogoBg />}
-      {currentPage === 'landing' && <CirclesBG />}
+      {currentPage === 'landing' && theme.width > 650 && <CirclesBG />}
     </div>
   )
 }

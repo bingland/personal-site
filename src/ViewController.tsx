@@ -17,7 +17,7 @@ function ViewController() {
   const useStyles = createUseStyles({
     appContainer: {
       color: theme.fontColor,
-      fontFamily: `'Raleway', sans-serif`,
+      fontFamily: `'Open Sans', sans-serif`, // heading
       fontWeight: 300,
       lineHeight: 1.25,
     },

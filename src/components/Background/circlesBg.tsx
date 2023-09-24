@@ -56,7 +56,7 @@ function LogoBg ({currentPage}: CodeBGProps) {
   })
   const css = useStyles()
 
-  return (
+  return ( // maybe adjust one of these on mobile
     <div style={{...theme.animations.fadeIn}}>
       <div className={css.circlesBgContainer}>
         <div className={classNames(css.circle)} style={{animationDelay: '0.1s',width: 40, height: 40, left: '80%', top: '10%' }} />

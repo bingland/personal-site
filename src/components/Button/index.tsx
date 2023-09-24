@@ -23,7 +23,7 @@ function Button({color, text, width, size = 'md', icon, href, onClick, ...props}
       borderRadius: 50,
       height: size === 'lg' ? 37 : size === 'md' ? 37 : size === 'sm' ? 30 : 35,
       display: 'flex',
-      gap: 7,
+      gap: 8,
       alignItems: 'center',
       backgroundColor: color || theme.themeColor,
       padding: `0 13px 0 ${size === 'lg' ? 4 : size === 'md' ? 4 : size === 'sm' ? 3 : 4}px`,
@@ -31,7 +31,7 @@ function Button({color, text, width, size = 'md', icon, href, onClick, ...props}
       width: width || 'min-content',
       whiteSpace: 'nowrap',
       fontSize: size === 'lg' ? 16 : size === 'md' ? 15 : size === 'sm' ? 13 : 15,
-      fontFamily: `'Raleway', sans-serif`,
+      fontFamily: `'Open Sans', sans-serif`, // heading
       transition: 'opacity 0.2s ease-in-out',
       '&:hover': {
         opacity: 0.8,
@@ -50,6 +50,7 @@ function Button({color, text, width, size = 'md', icon, href, onClick, ...props}
     text: {
       fontWeight: 'bold',
       color: theme.buttonFontColor,
+      marginBottom: 2,
     }
   })
   const css = useStyles()
