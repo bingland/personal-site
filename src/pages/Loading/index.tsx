@@ -1,4 +1,4 @@
-import { useContext } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { createUseStyles } from 'react-jss'
 
 import { ThemeContext } from '../../App'
@@ -48,10 +48,14 @@ import RattlersRoster from '../../images/freelanceGallery/RattlersRoster.jpg'
 import YINadmin from '../../images/freelanceGallery/YINadmin.jpg'
 
 // could be a cleaner way to do this; make a photos file and import all? 
-const photos = [
+// first photos render first and have more priority
+const firstPhotos = [
   profilePic,
   pfpOutline,
   hex,
+]
+// second photos render slightly later, should be not seen at first
+const secondPhotos = [
   unlockingUnit,
   unlockingUnitHand,
   nokeUnlockCoverPhoto,
@@ -150,6 +154,20 @@ function Loading ({ show }: LoadingProps) {
   })
   const css = useStyles()
 
+  const [showFirst, setShowFirst] = useState(false)
+  const [showSecond, setShowSecond] = useState(false)
+
+  useEffect(() => {
+    setShowFirst(true)
+    setTimeout(() => {
+      setShowSecond(true)
+    }, 1200)
+  }, [])
+
+  const hiddenPhoto = (src: string, index: number) => (
+    <img src={src} className={css.hiddenPhoto} key={index+'loadingPhoto'} alt={'pre loading '+index} />
+  )
+
   return (
     <div className={css.loadingContainer} style={{opacity: show ? 1 : 0 }}>
       <div style={{...theme.animations.fadeIn}}>
@@ -165,7 +183,8 @@ function Loading ({ show }: LoadingProps) {
           I'm a Web Developer with 2 years of professional experience in both front end web development and web design. 
           I graduated from Utah Valley University in 2021 with a Bachelor's Degree in Web Design & Development.
         </div>
-        {photos.map((p, i) => <img src={p} className={css.hiddenPhoto} key={i+'loadingPhoto'} alt={'pre loading '+i} />)}
+        {showFirst && firstPhotos.map(hiddenPhoto)}
+        {showSecond && secondPhotos.map(hiddenPhoto)}
       </div>
     </div>
   )
