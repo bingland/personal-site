@@ -65,7 +65,7 @@ function CodeBG () {
         top: defaultPercent,
         opacity: 0.026,
       }}>
-        {codeText}
+        {codeText}{codeText}{codeText}
       </div>
     </div>
   )

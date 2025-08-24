@@ -23,7 +23,7 @@ interface GalleryProps {
   toggle: () => void
 }
 
-function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black', coverPhoto, gallery, toggle, ...props}: GalleryProps) {
+function Gallery ({title, subtitle, description, moreInfo, galleryColor = '#000', coverPhoto, gallery, toggle, ...props}: GalleryProps) {
   const theme = useContext(ThemeContext)
   const { width } = theme
   const slideWidth = width > 1530 ? 1025 : width > 1300 ? 800 : width > 1125 ? 1000 : 750
@@ -37,14 +37,16 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       top: 0,
       left: 0,
       padding: 55,
-      background: 'rgba(255,255,255,0.3)',
+      backgroundColor: `${galleryColor}33`, // 33 is 20% opacity in hex
       backdropFilter: 'blur(4px)',
       cursor: 'pointer',
       display: 'grid',
       placeItems: 'center',
-      // transition: '0.2s background ease-in-out',
+      // TODO: this would be a nice effect
+      // transition: '0.2s all ease-in-out',
       // '&:hover': {
-      //   background: 'rgba(0,0,0,0.3)',
+      //   backgroundColor: `${galleryColor}1A`, // 1A is 10% opacity in hex
+      //   backdropFilter: 'blur(2px)',
       // }
     },
     galleryElements: {
@@ -69,8 +71,10 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
     infoSection: {
       padding: 20,
       height: '100%',
-      maxHeight: '100%',
-      overflowY: 'auto',
+      maxHeight: 'calc(100vh - 110px)', // Account for container padding
+      minHeight: 0, // Allow shrinking
+      display: 'flex',
+      flexDirection: 'column',
       '@media (max-width: 1300px)': {
         display: 'none',
       }
@@ -104,16 +108,22 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
     },
     infoDescription: {
       fontSize: 18,
+      flex: 1,
+      overflowY: 'auto',
+      minHeight: 0,
+      marginBottom: 20,
+    },
+    infoContent: {
+      flex: 1,
+      display: 'flex',
+      flexDirection: 'column',
+      minHeight: 0,
     },
     bottomButtons: {
-      position: 'absolute',
-      bottom: 0,
-      left: 0,
       width: '100%',
-      padding: 20,
       display: 'flex',
-      gridTemplateColumns: '1fr 1fr',
-      gap: 20,
+      flexDirection: 'column',
+      gap: 15,
     },
     bottomButton: {
       color: theme.buttonFontColor,
@@ -123,12 +133,15 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
       boxShadow: theme.boxShadow,
       border: `1px solid ${theme.borderColor}`,
       borderRadius: 50,
-      marginTop: 10,
       padding: '10px 15px',
       fontSize: 16,
       width: '100%',
       textAlign: 'center',
       cursor: 'pointer',
+      transition: 'opacity 0.2s ease-in-out',
+      '&:hover': {
+        opacity: 0.8,
+      }
     },
 
     imageSelect: {
@@ -199,10 +212,12 @@ function Gallery ({title, subtitle, description, moreInfo, galleryColor = 'black
         gridTemplateColumns: width > 1300 ? `350px ${slideWidth}px` : `${slideWidth}px`, 
       }}>
         <div className={classNames(css.card, css.infoSection)} onClick={e => e.stopPropagation()}>
-          <div className={css.coverPhotoDiv} />
-          <div className={css.infoTitle}>{title}</div>
-          <div className={css.infoSubtitle}>{subtitle}</div>
-          <div className={css.infoDescription}>{description}</div>
+          <div className={css.infoContent}>
+            <div className={css.coverPhotoDiv} />
+            <div className={css.infoTitle}>{title}</div>
+            <div className={css.infoSubtitle}>{subtitle}</div>
+            <div className={classNames(css.infoDescription)}>{description}</div>
+          </div>
           <div className={css.bottomButtons}>
             {moreInfo && <div className={css.bottomButton} onClick={openMoreInfo}>More Info</div>}
             <div className={css.bottomButton} onClick={toggle}>Close</div>

@@ -7,7 +7,8 @@ interface ProjectBoxProps {
   highlightColor?: string
   title: string
   desc: string
-  size?: 1 | 2
+  boxWidth?: 1 | 2
+  boxHeight?: 1 | 2
   gallery?: boolean
   showGallery?: boolean
   extraArea?: any
@@ -18,14 +19,16 @@ interface ProjectBoxProps {
   repo?: string
 }
 
-function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, showGallery, extraArea, style, toggleGallery, site, repo, ...props}: ProjectBoxProps) {
+function ProjectBox({ highlightColor, title, desc, boxWidth = 1, boxHeight = 1, about, gallery, showGallery, extraArea, style, toggleGallery, site, repo, ...props}: ProjectBoxProps) {
   const theme = useContext(ThemeContext)
+
+  const width = theme.width > 800 ? boxWidth : 1
+  const height = theme.width > 800 ? boxHeight : 1
   
   const useStyles = createUseStyles({
     projectBoxContainer: {
       position: 'relative',
       border: `1px solid ${theme.borderColor}`,
-      height: 260,
       borderRadius: 25,
       padding: 25,
       background: theme.backgroundColor,
@@ -48,7 +51,7 @@ function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, sho
     desc: {
       fontSize: 17,
       fontWeight: 'lighter',
-      maxWidth: 440,
+      maxWidth: 380,
       '@media (max-width: 1000px)': {
         fontSize: 16,
       },
@@ -60,22 +63,35 @@ function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, sho
       borderTop: `1px solid ${theme.borderColor}`,
       height: 1,
       margin: '7px 0 12px 0',
-      maxWidth: 440,
+      maxWidth: 380,
     },
     linksArea: {
       position: 'absolute',
-      bottom: 20,
+      bottom: 25,
       display: 'flex',
       gap: 15,
+      '@media (max-width: 500px)': {
+        bottom: 20,
+      }
     },
 
     extraArea: {
       position: 'absolute',
-      top: 20,
-      right: 20,
-      width: 265,
-      height: 215,
-      borderRadius: 15,
+      top: 25,
+      right: 25,
+      width: 275,
+      height: 213,
+      borderRadius: 10,
+      background: theme.backgroundColor,
+      border: `1px solid ${theme.borderColor}`,
+      boxShadow: theme.boxShadow,
+    },
+    extraAreaRelative: {
+      position: 'relative',
+      width: 275,
+      marginBottom: 25,
+      height: 213,
+      borderRadius: 10,
       background: theme.backgroundColor,
       border: `1px solid ${theme.borderColor}`,
       boxShadow: theme.boxShadow,
@@ -84,24 +100,31 @@ function ProjectBox({ highlightColor, title, desc, size = 1, about, gallery, sho
   const css = useStyles()
 
   const calcWidth = () => {
-    return (size * (theme.width > 500 ? 380 : 320)) + (size > 1 ? 30 : 0)
+    if (width === 1) {
+      return (theme.width > 500 ? 326 : 320)
+    } else {
+      return (theme.width > 500 ? 714 : 640) + 30 // include gap
+    }
   }
-  // const calcBtnSize = () => {
-  //   return theme.width > 500 ? 'md' : 'sm'
-  // }
+  const calcHeight = () => {
+    return (height * (theme.width > 800 ? 265 : theme.width > 500 ? 280 : 240)) + (height > 1 ? 30 : 0)
+  }
+  const calcBtnSize = () => {
+    return theme.width > 500 ? 'md' : 'sm'
+  }
 
   return (
-    <div className={css.projectBoxContainer} style={{...style, width: calcWidth(),}}>
+    <div className={css.projectBoxContainer} style={{...style, width: calcWidth(), height: calcHeight()}}>
+      {extraArea && (height > 1 || width > 1) && <div className={height > 1 ? css.extraAreaRelative : css.extraArea}>{extraArea}</div>}
       <div className={css.title}>{title}</div>
       <div className={css.divider} />
       <div className={css.desc}>{desc}</div>
       <div className={css.linksArea}>
-        {gallery && <Button text={'View Gallery'} onClick={toggleGallery} color={highlightColor} icon={'gallery'} />}
-        {site && <Button text={'Visit Site'} color={highlightColor} href={site} icon={'viewsite'} />}
-        {about && <Button text={'More Info'} color={highlightColor} href={about} icon={'viewsite'} />}
-        {repo && <Button text={'View Repo'} color={highlightColor} href={repo} icon={'github'} />}
+        {gallery && <Button text={'View Gallery'} onClick={toggleGallery} color={highlightColor} icon={'gallery'} size={calcBtnSize()} />}
+        {site && <Button text={'Visit Site'} color={highlightColor} href={site} icon={'viewsite'} size={calcBtnSize()} />}
+        {about && <Button text={'More Info'} color={highlightColor} href={about} icon={'viewsite'} size={calcBtnSize()} />}
+        {repo && <Button text={'View Repo'} color={highlightColor} href={repo} icon={'github'} size={calcBtnSize()} />}
       </div>
-      {size > 1 && <div className={css.extraArea}>{extraArea}</div>}
     </div>
   )
 }

@@ -14,6 +14,8 @@ import unlockingUnitHand from '../../images/unlockingUnitHand.png'
 // cover photos
 import nokeUnlockCoverPhoto from '../../images/nokeGallery/nokeUnlockCoverPhoto.jpg'
 import freelanceCoverPhoto from '../../images/freelanceGallery/freelanceCoverPhoto.jpg'
+import renderPhotoOne from '../../images/corelliumGallery/renderOne.jpg'
+import renderPhotoTwo from '../../images/corelliumGallery/renderTwo.jpg'
 
 // noke photos
 import createFacilityImageScreen from '../../images/nokeGallery/createFacilityImageScreen.jpg'
@@ -47,6 +49,28 @@ import RattlersCover from '../../images/freelanceGallery/RattlersCover.jpg'
 import RattlersRoster from '../../images/freelanceGallery/RattlersRoster.jpg'
 import YINadmin from '../../images/freelanceGallery/YINadmin.jpg'
 
+// corellium photos
+import activityLogPhoto from '../../images/corelliumGallery/activityLog.jpg'
+import adminOverviewPhoto from '../../images/corelliumGallery/adminOverview.jpg'
+import appsPagePhoto from '../../images/corelliumGallery/appsPage.jpg'
+import consolePhoto from '../../images/corelliumGallery/console.jpg'
+import designSystemButtonPhoto from '../../images/corelliumGallery/designSystemButton.jpg'
+import designSystemCardPhoto from '../../images/corelliumGallery/designSystemCard.jpg'
+import designSystemTablePhoto from '../../images/corelliumGallery/designSystemTable.jpg'
+import deviceCreatePagePhoto from '../../images/corelliumGallery/deviceCreatePage.jpg'
+import devicesPagePhoto from '../../images/corelliumGallery/devicesPage.jpg'
+import filesPagePhoto from '../../images/corelliumGallery/filesPage.jpg'
+import htmlReportOnePhoto from '../../images/corelliumGallery/htmlReportOne.jpg'
+import htmlReportTwoPhoto from '../../images/corelliumGallery/htmlReportTwo.jpg'
+import matrixCreateTestPhoto from '../../images/corelliumGallery/matrixCreateTest.jpg'
+import matrixMonitorTestPhoto from '../../images/corelliumGallery/matrixMonitorTest.jpg'
+import matrixReportOnePhoto from '../../images/corelliumGallery/matrixReportOne.jpg'
+import matrixReportTwoPhoto from '../../images/corelliumGallery/matrixReportTwo.jpg'
+import matrixRunTestPhoto from '../../images/corelliumGallery/matrixRunTest.jpg'
+import projectsPagePhoto from '../../images/corelliumGallery/projectsPage.jpg'
+import resourcesPagePhoto from '../../images/corelliumGallery/resourcesPage.jpg'
+import themeSelectPhoto from '../../images/corelliumGallery/themeSelect.jpg'
+
 // could be a cleaner way to do this; make a photos file and import all? 
 // first photos render first and have more priority
 const firstPhotos = [
@@ -56,9 +80,37 @@ const firstPhotos = [
 ]
 // second photos render slightly later, should be not seen at first
 const secondPhotos = [
+  // project box photos
   unlockingUnit,
   unlockingUnitHand,
   nokeUnlockCoverPhoto,
+  freelanceCoverPhoto,
+  renderPhotoOne,
+  renderPhotoTwo,
+
+  // corellium
+  activityLogPhoto,
+  adminOverviewPhoto,
+  appsPagePhoto,
+  consolePhoto,
+  designSystemButtonPhoto,
+  designSystemCardPhoto,
+  designSystemTablePhoto,
+  deviceCreatePagePhoto,
+  devicesPagePhoto,
+  filesPagePhoto,
+  htmlReportOnePhoto,
+  htmlReportTwoPhoto,
+  matrixCreateTestPhoto,
+  matrixMonitorTestPhoto,
+  matrixReportOnePhoto,
+  matrixReportTwoPhoto,
+  matrixRunTestPhoto,
+  projectsPagePhoto,
+  resourcesPagePhoto,
+  themeSelectPhoto,
+
+  // noke
   createFacilityImageScreen,
   darkToastPreviews,
   lightToastPreviews,
@@ -79,7 +131,8 @@ const secondPhotos = [
   siteCompanyMessages,
   siteSettings,
   userCreate,
-  freelanceCoverPhoto,
+
+  // freelance
   BRWWizardLanding1,
   BRWWizardLanding2,
   BRWWizardStart,
@@ -87,7 +140,7 @@ const secondPhotos = [
   BRWgenerated2,
   RattlersCover,
   RattlersRoster,
-  YINadmin
+  YINadmin,
 ]
 
 interface LoadingProps {
@@ -127,8 +180,6 @@ function Loading ({ show }: LoadingProps) {
       height: 200,
       top: 0,
       left: 0,
-      background: 'yellow',
-      zIndez: 9999,
       position: 'absolute',
       opacity: 0,
     },
@@ -180,7 +231,7 @@ function Loading ({ show }: LoadingProps) {
         <div className={css.headingText}>Brayden England</div>
         <div className={css.codeText}>Web Developer</div>
         <div className={css.bodyText}>
-          I'm a Web Developer with 2 years of professional experience in both front end web development and web design. 
+          I'm a Web Developer with professional experience in both front end web development and web design. 
           I graduated from Utah Valley University in 2021 with a Bachelor's Degree in Web Design & Development.
         </div>
         {showFirst && firstPhotos.map(hiddenPhoto)}

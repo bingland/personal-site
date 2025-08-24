@@ -32,7 +32,7 @@ function Header(props: HeaderProps) {
     divider: {
       margin: '0 auto',
       width: '100%',
-      maxWidth: 1200,
+      maxWidth: 1100,
       display: 'flex',
       justifyContent: 'space-between',
     },

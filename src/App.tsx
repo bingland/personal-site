@@ -47,6 +47,8 @@ function App() {
 
   const toggleTheme = () => setDarkTheme(!isDarkTheme)
 
+  const timingFunction = 'cubic-bezier(0.210, 0.435, 0.480, 0.905)'
+
   const ThemeValues = {
     isDarkTheme,
     setDarkTheme,
@@ -54,16 +56,16 @@ function App() {
     setThemeColor,
     animations: { 
       fadeDown: {
-        animation: '0.8s forwards fadeDown ease-out', opacity: 0,
+        animation: `0.8s forwards fadeDown ${timingFunction}`, opacity: 0,
       },
       fadeDownShort: {
-        animation: '0.5s forwards fadeDownShort ease-out', opacity: 0,
+        animation: `0.5s forwards fadeDownShort ${timingFunction}`, opacity: 0,
       },
       fadeIn: {
-        animation: '2s forwards fadeIn ease-out', opacity: 0,
+        animation: `2s forwards fadeIn ${timingFunction}`, opacity: 0,
       },
       fadeInFast: {
-        animation: '0.3s forwards fadeIn ease-out', opacity: 0,
+        animation: `0.3s forwards fadeIn ${timingFunction}`, opacity: 0,
       }
     },
     backgroundColor: 'rgba(255,255,255,0.6)',

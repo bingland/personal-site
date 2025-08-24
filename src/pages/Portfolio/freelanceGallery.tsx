@@ -57,7 +57,7 @@ function FreelanceGallery({toggle}: FreelanceGalleryProps) {
     <div>
       <Gallery 
         title={'Freelance'}
-        subtitle={'August 2023 to Current'} 
+        subtitle={'July 2023 to October 2023'} 
         description={`
           In my freelance career so far, I have worked primarily as a UX/UI designer and have come up with tons of 
           designs for a large amount of websites and applications that cover a large range of different industries 

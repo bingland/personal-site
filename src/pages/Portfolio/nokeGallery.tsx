@@ -117,7 +117,7 @@ function NokeGallery({toggle}: NokeGalleryProps) {
   return (
     <div>
       <Gallery 
-        title={'Noke Smart Entry'}
+        title="Nokē"
         subtitle={'June 2021 to April 2023'} 
         description={`
           Noke Smart Entry is an electronic smart lock & access control system that allows tenants to access your facility & their 

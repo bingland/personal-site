@@ -45,7 +45,7 @@ function ViewController() {
       <Animations />
       {!isLoading && <>
         {currentPage !== 'loading' && <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />}
-        {currentPage === 'landing' && <Landing />}
+        {currentPage === 'landing' && <Landing setCurrentPage={setCurrentPage} />}
         {currentPage === 'portfolio' && <Portfolio />}
         {currentPage === 'contact' && <Contact />}
       </>}

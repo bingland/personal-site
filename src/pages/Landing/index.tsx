@@ -4,8 +4,13 @@ import { ThemeContext } from '../../App'
 
 import pfpOutline from '../../images/pfpOutline.png'
 import hex from '../../images/hex.png'
+import Button from '../../components/Button'
 
-function Landing() {
+interface LandingProps {
+  setCurrentPage: (page: PageTypes) => void
+}
+
+function Landing({ setCurrentPage }: LandingProps) {
   const theme = useContext(ThemeContext)
   
   const useStyles = createUseStyles({
@@ -27,7 +32,7 @@ function Landing() {
       margin: '0 auto',
       width: '100%',
       height: '100%',
-      maxWidth: 1200,
+      maxWidth: 1100,
       display: 'grid',
       gridTemplateColumns: '1fr 360px',
       gap: 100,
@@ -48,6 +53,10 @@ function Landing() {
     mainTextArea: {
       '@media (max-width: 1025px)': {
         order: 2,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        textAlign: 'center',
       }
     },
     mainHeader: {
@@ -64,7 +73,9 @@ function Landing() {
       },
     },
     mainParagraph: {
-      fontSize: 24,
+      fontSize: 23,
+      lineHeight: 1.3,
+      marginBottom: 25,
       '@media (max-width: 580px)': {
         fontSize: 20,
       },
@@ -115,15 +126,37 @@ function Landing() {
   })
   const css = useStyles()
 
+  const calcExperience = () => {
+    // get time since first job (June 2021)
+    const startDate = new Date(2021, 5) // June 2021 (month is 0-indexed)
+    const currentDate = new Date()
+    
+    const yearsDiff = currentDate.getFullYear() - startDate.getFullYear()
+    const monthsDiff = currentDate.getMonth() - startDate.getMonth()
+    
+    const totalMonths = yearsDiff * 12 + monthsDiff
+    const years = Math.floor(totalMonths / 12)
+    const months = totalMonths % 12
+    
+    if (years > 0 && months > 0) {
+      return `${years} year${years > 1 ? 's' : ''} and ${months} month${months > 1 ? 's' : ''}`
+    } else if (years > 0) {
+      return `${years} year${years > 1 ? 's' : ''}`
+    } else {
+      return `${months} month${months > 1 ? 's' : ''}`
+    }
+  }
+
   return (
     <div className={css.landingContainer} style={{...theme.animations.fadeDown, animationDelay: '0.1s'}}>
       <div className={css.contentContainer}>
         <div className={css.mainTextArea}>
           <h1 className={css.mainHeader}>Hey, my name's Brayden.</h1>
           <p className={css.mainParagraph}>
-            I'm a Web Developer with 2 years of professional experience in both front end web development and web design. 
+            I'm a Web Developer with {calcExperience()} of professional experience in both front end web development and web design. 
             I graduated from Utah Valley University in 2021 with a Bachelor's Degree in Web Design & Development.
           </p>
+          <Button size={theme.width > 500 ? 'xl' : 'lg'} text="View Portfolio" icon="forwardsArrow" onClick={() => setCurrentPage('portfolio')} />
         </div>
         <div className={css.photoArea}>
           <div className={css.hexPhoto} />

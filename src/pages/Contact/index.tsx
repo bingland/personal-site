@@ -9,6 +9,7 @@ import kylePic from '../../images/recs/kyle.jpg'
 import mateoPic from '../../images/recs/mateo.jpg'
 import mikeyPic from '../../images/recs/mikey.jpg'
 import seanPic from '../../images/recs/sean.jpg'
+import lydiaPic from '../../images/recs/lydia.jpg'
 
 interface RecommendationProps {
   title: string
@@ -235,8 +236,21 @@ function Contact() {
               `}
               giverImg={seanPic}
               giverName={'Sean Calkins'}
-              giverPosition={'Mobile Application Developer at Tendo'}
-              />
+              giverPosition={'Mobile Application Developer'}
+            />
+            <Recommendation 
+              title={'An Excellent Frontend Engineer'}
+              text={`
+                He was an excellent frontend engineer to work with! Always friendly, available for 
+                questions, and quick to make the necessary changes that we requested. 
+                Brayden also provided input about designs, helping to guide the direction 
+                of the MATRIX UI. Plus, he also acted as scrum leader for his squad, 
+                which showed his dedication to the team!
+              `}
+              giverImg={lydiaPic}
+              giverName="Lydia Martin"
+              giverPosition="Cybersecurity Product Manager"
+            />
             <Recommendation 
               title={'Truly An Extraordinaire'}
               text={`
@@ -246,8 +260,8 @@ function Contact() {
               `}
               giverImg={mateoPic}
               giverName={'Matthew Johnston'}
-              giverPosition={'Software Engineer at Noke'}
-              />
+              giverPosition={'Frontend Developer'}
+            />
             <Recommendation 
               title={'Standout Talent'}
               text={`
@@ -257,8 +271,8 @@ function Contact() {
               `}
               giverImg={kylePic}
               giverName={'Kyle Johnson'}
-              giverPosition={'Software Engineer at Noke'}
-              />
+              giverPosition={'Software Engineer'}
+            />
             <Recommendation 
               title={'An Excellent Collaborator'}
               text={`
@@ -268,8 +282,8 @@ function Contact() {
               `}
               giverImg={mikeyPic}
               giverName={'Mikey Johnston'}
-              giverPosition={'Frontend Developer at Angel Studios'}
-              />
+              giverPosition={'Frontend Developer'}
+            />
           </Carousel>
         </div>
       </div>
