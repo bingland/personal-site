@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { createUseStyles } from 'react-jss'
 import { ThemeContext } from '../../App'
 import Button from '../../components/Button'
@@ -21,8 +21,6 @@ interface RecommendationProps {
 
 function Contact() {
   const theme = useContext(ThemeContext)
-  const [showCopyMsg, setShowCopyMsg] = useState<boolean>(false)
-  const [showCopyErr, setShowCopyErr] = useState<boolean>(false)
   
   const useStyles = createUseStyles({
     contactContainer: {
@@ -143,17 +141,6 @@ function Contact() {
     const url = 'https://github.com/bingland'
     window.open(url, '_blank')?.focus()
   }
-  const copyEmail = async () => {
-    const email = 'bray.patriot@gmail.com'
-    try {
-      await navigator.clipboard.writeText(email)
-      setShowCopyMsg(true)
-      setTimeout(() => setShowCopyMsg(false), 2000)
-    } catch (e) {
-      setShowCopyErr(true)
-      setTimeout(() => setShowCopyErr(false), 2000)
-    }
-  }
 
   const Recommendation = ({title, text, giverImg, giverName, giverPosition}: RecommendationProps) => 
     <div className={css.recommendation}>
@@ -195,15 +182,6 @@ function Contact() {
                 icon={'github'} 
                 size={'lg'} 
                 color={'#4B4B4B'} 
-                width={'230px'} />
-            </div>
-            <div className={css.linkItem}>
-              <Button 
-                text={showCopyErr ? `Couldn't Copy Email` : !showCopyMsg ? 'Send me an Email' : 'Copied to Clipboard'} 
-                onClick={copyEmail}
-                icon={showCopyMsg ? 'success' : 'email'} 
-                size={'lg'} 
-                color={'#E3421E'} 
                 width={'230px'} />
             </div>
           </div>
